@@ -1,0 +1,6 @@
+description:
+  The request failed due to an authorization issue. Usually this means that the user has insufficient access rights.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/Error.json

@@ -1,0 +1,95 @@
+parameters:
+  - $ref: ../parameters/promptId.yaml
+  - $ref: ../parameters/version.yaml
+get:
+  tags:
+    - Prompt Versions
+  summary: Retrieve a prompt by its ID or 'slug'
+  operationId: 'prompt::read'
+  responses:
+    '200':
+      description: Prompt details including the latest prompt text and version.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptResponse.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  deprecated: false
+put:
+  tags:
+    - Prompt Versions
+  summary: Update/replace a prompt by its ID or 'slug'
+  operationId: 'prompt::update'
+  requestBody:
+    description: All the desired prompt details. If a new template is defined, it will be versioned automatically.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PromptDto.json
+    required: true
+  responses:
+    '200':
+      description: Prompt details including the latest prompt text and version.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptResponse.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Prompts
+  summary: Remove a prompt (and all its versions) by its ID or 'slug'
+  operationId: 'prompt::delete'
+  responses:
+    '204':
+      $ref: ../../components/responses/204NoContent.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+patch:
+  tags:
+    - Prompts
+  summary: Perform a partial update of a prompt by its ID or 'slug'
+  operationId: 'prompt::patch'
+  requestBody:
+    description: Prompt details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PromptPatchDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated prompt
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptResponse.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+        

@@ -1,0 +1,13 @@
+{
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "format" : "uuid"
+    }
+  },
+  "required" : [ "id" ],
+  "$id" : "https://schema.agenteux.ai/UuidReference.json",
+  "title" : "UuidReference",
+    "description" : "This is a reference to another resource in the platform (by its UUID)."  
+}

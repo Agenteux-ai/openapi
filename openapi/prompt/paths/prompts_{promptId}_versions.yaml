@@ -1,0 +1,48 @@
+parameters:
+  - $ref: ../parameters/promptId.yaml
+get:
+  tags:
+    - Prompt Versions
+  summary: List all the versions for a prompt (paginated)
+  operationId: 'version::readAll'
+  responses:
+    '200':
+      description: An array of prompt versions and their details.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptVersionList.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+post:
+  tags:
+    - Prompt Versions
+  summary: >-
+    Create a new prompt version.	
+  operationId: 'version::create'
+  requestBody:
+    description: Prompt details.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PromptDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful prompt creation. Returns the newly-created prompt
+        details including the initial version and description of any variables.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptResponse.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml

@@ -1,0 +1,77 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "createdAt" : {
+      "type" : "string",
+      "readOnly" : true,
+      "format" : "date-time"
+    },
+    "description" : {
+      "type" : "string"
+    },
+    "id" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "prompt" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        }
+      },
+      "required" : [ "id" ]
+    },
+    "signature" : {
+      "type" : "string"
+    },
+    "slug" : {
+      "type" : "string"
+    },
+    "template" : {
+      "type" : "string"
+    },
+    "updatedAt" : {
+      "type" : "string",
+      "readOnly" : true,
+      "format" : "date-time"
+    },
+    "variables" : {
+      "type" : "object"
+    },
+    "version" : {
+      "type" : "object",
+      "properties" : {
+        "buildTags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "major" : {
+          "type" : "integer"
+        },
+        "minor" : {
+          "type" : "integer"
+        },
+        "patch" : {
+          "type" : "integer"
+        },
+        "suffixTags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "$id" : "https://schema.agenteux.com/prompt/VersionResponse.json",
+  "title" : "VersionResponse",
+  "description" : "JSON Schema definition for VersionResponse"
+}

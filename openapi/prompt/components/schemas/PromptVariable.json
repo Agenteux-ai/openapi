@@ -1,0 +1,21 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "name" : {
+      "type" : "string"
+    },
+    "type" : {
+      "type" : "string",
+      "enum" : [ "string", "integer", "decimal", "boolean", "date" ],
+      "default" : "string"
+    },
+	"defaultValue" : {
+	  "type" : "string",
+	}
+  },
+  "required" : [ "name" ],
+  "$id" : "https://schema.agenteux.com/prompt/PromptVariable.json",
+  "title" : "PromptVariable",
+  "description" : "JSON Schema definition for PromptVariable"
+}

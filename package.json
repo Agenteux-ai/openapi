@@ -8,6 +8,7 @@
   "scripts": {
     "start": "redocly preview",
     "build": "redocly bundle -o dist/bundle.yaml",
+	"docs": "redocly build-docs -o dist/index.html agenteux@v1",
     "test": "redocly lint"
   }
 }

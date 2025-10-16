@@ -1,0 +1,6 @@
+description:
+  An identifier (or 'slug' if applicable) in the request URL or body was invalid (not found).
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/Error.json
