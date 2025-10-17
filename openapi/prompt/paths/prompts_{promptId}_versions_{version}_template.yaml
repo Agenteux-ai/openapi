@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Prompt Versions
-  summary: Retrieve the prompt template for a specific prompt version.
+  summary: Retrieve the prompt template for a specific prompt version
   operationId: 'template::read'
   responses:
     '200':
@@ -23,7 +23,7 @@ get:
 post:
   tags:
     - Prompt Versions
-  summary: Perform variable substitution on a prompt template on a specific prompt version.
+  summary: Perform variable substitution on a prompt template
   operationId: 'template::substitute'
   requestBody:
     description: Submit the variables as name/value pairs to be substituted into the prompt template.

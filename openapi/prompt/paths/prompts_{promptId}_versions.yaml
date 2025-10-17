@@ -20,7 +20,7 @@ post:
   tags:
     - Prompt Versions
   summary: >-
-    Create a new prompt version.	
+    Create a new prompt version
   operationId: 'version::create'
   requestBody:
     description: Prompt details.
@@ -28,6 +28,9 @@ post:
       application/json:
         schema:
           $ref: ../components/schemas/PromptDto.json
+      application/vnd.ai.agenteux.prompt-template+json:
+        schema:
+          type: string
     required: true
   responses:
     '201':

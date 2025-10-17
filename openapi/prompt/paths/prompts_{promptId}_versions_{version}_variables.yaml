@@ -4,7 +4,7 @@ parameters:
 get:
   tags:
     - Prompt Versions
-  summary: Retrieve the prompt variables for a specific prompt version.
+  summary: Retrieve the prompt variables for a specific prompt version
   operationId: 'version::variables'
   responses:
     '200':

@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Prompts
-  summary: Retrieve a prompt by its ID or 'slug', showing the latest version information.
+  summary: Retrieve a prompt
   operationId: 'prompt::read'
   responses:
     '200':
@@ -22,7 +22,7 @@ get:
 put:
   tags:
     - Prompts
-  summary: Update/replace a prompt by its ID or 'slug'
+  summary: Update/replace a prompt
   operationId: 'prompt::update'
   requestBody:
     description: All the desired prompt details. If a new template is defined, it will be versioned automatically.
@@ -51,7 +51,7 @@ put:
 delete:
   tags:
     - Prompts
-  summary: Remove a prompt (and all its versions) by its ID or 'slug'
+  summary: Remove a prompt (and all its versions)
   operationId: 'prompt::delete'
   responses:
     '204':
@@ -65,7 +65,7 @@ delete:
 patch:
   tags:
     - Prompts
-  summary: Perform a partial update of a prompt by its ID or 'slug'
+  summary: Perform a partial update of a prompt
   operationId: 'prompt::patch'
   requestBody:
     description: Prompt details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.
@@ -94,7 +94,7 @@ patch:
 post:
   tags:
     - Prompts
-  summary: Perform variable substitution on a prompt by its ID or 'slug'.
+  summary: Perform variable substitution on a prompt (using the latest version)
   operationId: 'prompt::substitute'
   requestBody:
     description: Submit the variables as name/value pairs to be substituted into the prompt.
@@ -105,7 +105,7 @@ post:
     required: true
   responses:
     '200':
-      description: The entire newly-updated prompt
+      description: The entire prompt metadata including the prompt text with variables substituted.
       content:
         application/json:
           schema:

@@ -18,7 +18,7 @@ post:
   tags:
     - Prompts
   summary: >-
-    Create a new prompt.	
+    Create a new prompt
   operationId: 'prompt::create'
   requestBody:
     description: Prompt details.
