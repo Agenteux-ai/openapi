@@ -1,0 +1,50 @@
+parameters:
+  - $ref: ../parameters/promptId.yaml
+  - $ref: ../parameters/version.yaml
+get:
+  tags:
+    - Prompt Versions
+  summary: Retrieve the prompt template for a specific prompt version.
+  operationId: 'template::read'
+  responses:
+    '200':
+      description: The prompt template for the specific version.
+      content:
+        text/plain:
+          schema:
+            type: string
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  deprecated: false
+post:
+  tags:
+    - Prompt Versions
+  summary: Perform variable substitution on a prompt template on a specific prompt version.
+  operationId: 'template::substitute'
+  requestBody:
+    description: Submit the variables as name/value pairs to be substituted into the prompt template.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/VariablesDto.json
+    required: true
+  responses:
+    '200':
+      description: The prompt template with the variables substituted.
+      content:
+        text/plain:
+          schema:
+            type: string
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  deprecated: false

@@ -43,7 +43,7 @@
     },
     "variables" : {
       "type" : "object",
-	  "$ref" : "PromptVariableList.json"
+	  $ref : 'PromptVariableList.json'
     },
     "version" : {
       "type" : "string",

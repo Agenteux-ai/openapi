@@ -54,6 +54,10 @@ paths:
     $ref: 'prompt/paths/prompts_{promptId}_versions.yaml'
   '/prompts/{promptId}/versions/{version}':
     $ref: 'prompt/paths/prompts_{promptId}_versions_{version}.yaml'
+  '/prompts/{promptId}/versions/{version}/template':
+    $ref: 'prompt/paths/prompts_{promptId}_versions_{version}_template.yaml'
+  '/prompts/{promptId}/versions/{version}/variables':
+    $ref: 'prompt/paths/prompts_{promptId}_versions_{version}_variables.yaml'
 security:
   - OAuth2: []
 components:

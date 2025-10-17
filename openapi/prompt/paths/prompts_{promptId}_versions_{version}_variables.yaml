@@ -1,0 +1,22 @@
+parameters:
+  - $ref: ../parameters/promptId.yaml
+  - $ref: ../parameters/version.yaml
+get:
+  tags:
+    - Prompt Versions
+  summary: Retrieve the prompt variables for a specific prompt version.
+  operationId: 'version::variables'
+  responses:
+    '200':
+      description: Prompt variables for the specific version.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptVariableList.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  deprecated: false

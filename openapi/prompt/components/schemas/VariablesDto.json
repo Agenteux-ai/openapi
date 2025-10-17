@@ -1,7 +1,9 @@
 {
   "$schema" : "https://json-schema.org/draft/2020-12/schema",
   "type" : "object",
-  "additionalProperties" : { "type" : "string" },
+  "additionalProperties" : {
+    "type" : "string"
+  },
   "$id" : "https://schema.agenteux.com/prompt/VariablesDto.json",
   "title" : "VariablesDto",
   "description" : "JSON Schema definition for VariablesDto"
