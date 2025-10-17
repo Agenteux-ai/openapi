@@ -4,11 +4,11 @@ parameters:
 get:
   tags:
     - Prompt Versions
-  summary: Retrieve a prompt by its ID or 'slug'
-  operationId: 'prompt::read'
+  summary: Retrieve a specific prompt version by its prompt ID or 'slug' and its version number (or version ID).
+  operationId: 'version::read'
   responses:
     '200':
-      description: Prompt details including the latest prompt text and version.
+      description: Prompt details for the specific version.
       content:
         application/json:
           schema:
@@ -23,10 +23,10 @@ get:
 put:
   tags:
     - Prompt Versions
-  summary: Update/replace a prompt by its ID or 'slug'
+  summary: ??? Update/replace a prompt version by its ID or 'slug' and its version number (or version ID).
   operationId: 'prompt::update'
   requestBody:
-    description: All the desired prompt details. If a new template is defined, it will be versioned automatically.
+    description: All the new prompt details. If a new template is defined, it will be versioned automatically.
     content:
       application/json:
         schema:
@@ -92,4 +92,32 @@ patch:
       $ref: ../../components/responses/404NotFound.yaml
     '409':
       $ref: ../../components/responses/409Conflict.yaml
-        
+post:
+  tags:
+    - Prompt Versions
+  summary: Perform variable substitution on a prompt versioin by its ID or 'slug' and version number (or version ID).
+  operationId: 'version::substitute'
+  requestBody:
+    description: Submit the variables as name/value pairs to be substituted into the prompt version.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/VariablesDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire prompt metadata including the substituted prompt text.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptResponse.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

@@ -42,33 +42,12 @@
       "format" : "date-time"
     },
     "variables" : {
-      "type" : "object"
+      "type" : "object",
+	  "$ref" : "PromptVariableList.json"
     },
     "version" : {
-      "type" : "object",
-      "properties" : {
-        "buildTags" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "major" : {
-          "type" : "integer"
-        },
-        "minor" : {
-          "type" : "integer"
-        },
-        "patch" : {
-          "type" : "integer"
-        },
-        "suffixTags" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
+      "type" : "string",
+	  "format" : "semantic-version"
     }
   },
   "$id" : "https://schema.agenteux.com/prompt/VersionResponse.json",

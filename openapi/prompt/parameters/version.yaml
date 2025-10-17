@@ -1,6 +1,6 @@
 name: version
 in: path
-description: 'The semantic version (See: [SemVer](https://semver.org/)) or UUID of the prompt version.'
+description: 'The semantic version (See: [SemVer.org](https://semver.org/)) or UUID of the prompt version.'
 required: true
 allowEmptyValue: false
 schema:

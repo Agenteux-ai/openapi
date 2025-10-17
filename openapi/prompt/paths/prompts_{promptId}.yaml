@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Prompts
-  summary: Retrieve a prompt by its ID or 'slug'
+  summary: Retrieve a prompt by its ID or 'slug', showing the latest version information.
   operationId: 'prompt::read'
   responses:
     '200':
@@ -91,4 +91,32 @@ patch:
       $ref: ../../components/responses/404NotFound.yaml
     '409':
       $ref: ../../components/responses/409Conflict.yaml
-        
+post:
+  tags:
+    - Prompts
+  summary: Perform variable substitution on a prompt by its ID or 'slug'.
+  operationId: 'prompt::substitute'
+  requestBody:
+    description: Submit the variables as name/value pairs to be substituted into the prompt.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/VariablesDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated prompt
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PromptResponse.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

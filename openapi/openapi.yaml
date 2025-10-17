@@ -19,24 +19,32 @@ tags:
     description: "Prompt versioning operations."
   - name: Schemas
     description: "Operations on output schemas."
-  - name: Admin
-    description: "Operations reserved for administrators."
+  - name: Schemas
+    description: "Versioning operations for output schemas."
 x-tagGroups:
   - name: Prompt Management
     tags:
       - Prompts
-  - name: Prompt Versoning
+      - Prompt Versions
+  - name: Output Schema Management
+    tags:
+      - Schemas
+      - Schema Versions
+  - name: Content Delivery Network (CDN)
     tags:
       - Prompt Versions
   - name: Schema Management
     tags:
       - Schemas
 servers:
-  - url: https://{tenant}.agenteux.ai/api/v1
+  - url: https://{organizationId}.agenteux.ai/api/v1
     variables:
-      tenant:
-        default: test
-        description: Your tenant id
+      organizationId:
+        default: sandbox
+        description: >- 
+          Your organization id or organization name. Note that it is more efficient to use the organization ID assigned
+          to you rather than the organization name as the latter causes an extra lookup to find the ID and also has the
+          potential to break if the organization name is changed.
 paths:
   '/prompts':
     $ref: 'prompt/paths/prompts.yaml'
