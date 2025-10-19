@@ -5,6 +5,7 @@ get:
   tags:
     - Prompt Versions
   summary: Retrieve the prompt template for a specific prompt version
+  description: Retrieve the prompt template for the specified prompt version. Variables in the template will be in the form `{{variable-name}}`.
   operationId: 'template::read'
   responses:
     '200':
@@ -21,9 +22,34 @@ get:
       $ref: ../../components/responses/404NotFound.yaml
   deprecated: false
 post:
+  parameters:
+    - name: redirect
+      description: >-
+          If set, after performing the substitution, the response will be a 302 redirect to the
+          URL specified by this parameter, with the substituted prompt appended to the end of the url.
+          Thus, the query parameter must be in the string (e.g., named "q"). This is useful for integrating
+          with ChatGPT-like services that accept prompt input via a URL query parameter.
+
+          Short-hand values are also supported for common services:
+            - "chatgpt": redirects to `https://chatgpt.com/?q=`
+            - "claude": redirects to `https://claude.ai/new/?q=`
+            - "perplexity": redirects to `https://perplexity.com/?q=`
+            - "google_search": redirects to `https://www.google.com/search?q=`
+      in: query
+      schema:
+        type: string
   tags:
     - Prompt Versions
   summary: Perform variable substitution on a prompt template
+  description: >-
+    Perform variable substitution on the prompt template for the specified prompt version.
+    Submit the variables as name/value pairs in the request body, and the response will be
+    the prompt template with the variables substituted.
+
+    If the `redirect` query-string parameter is set, after performing the substitution,
+    the response will be a 302 redirect to the URL specified by this parameter,
+    with the substituted prompt appended to the end of the url. This is useful for integrating
+    with ChatGPT-like services that accept prompt input via a URL query parameter.
   operationId: 'template::substitute'
   requestBody:
     description: Submit the variables as name/value pairs to be substituted into the prompt template.
@@ -39,6 +65,8 @@ post:
         text/plain:
           schema:
             type: string
+    '302':
+      description: If the 'redirect' query-string parameter is set, redirect to the specified URL (or shorh-hand URL) with the substituted prompt.
     '400':
       $ref: ../../components/responses/400BadRequest.yaml
     '401':
