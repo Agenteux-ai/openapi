@@ -3,22 +3,22 @@
   "type" : "object",
   "properties" : {
     "description" : {
-      "type" : [ "string", "null" ]
+      "type" : [ "string", "null" ],
+	  "description": "A human-readable description of the prompt.",
+	  "maxLength": 1024
     },
     "name" : {
-      "type" : [ "string", "null" ]
+      "type" : [ "string", "null" ],
+	  "description": "The human-readable name of the prompt.",
+	  "maxLength": 256
     },
     "slug" : {
-      "type" : [ "string", "null" ]
-    },
-    "template" : {
-      "type" : [ "string", "null" ]
-    },
-    "version" : {
-      "type" : [ "string", "null" ]
+      "type" : [ "string", "null" ],
+	  "description": "A URL-friendly identifier for the prompt. If one is not provided, it is system-generated from the name.",
+	  "maxLength": 256
     }
   },
   "$id" : "https://schema.agenteux.com/prompt/PromptDto.json",
   "title" : "PromptDto",
-  "description" : "JSON Schema definition for PromptDto"
+  "description" : "Properties for updating (e.g., PUT or PATCH) a prompt."
 }

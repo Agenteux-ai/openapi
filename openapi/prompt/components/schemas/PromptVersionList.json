@@ -1,12 +1,13 @@
 {
     "type" : "object",
+	"description" : "A list of versions for a specific prompt.",
     "properties" : {
         "_embedded" : {
             "type" : "object",
             "properties" : {
-                "apikeys" : {
+                "versions" : {
                     "type" : "array",
-                    "items" : {"$ref" : "VersionResponse.json"}
+                    "items" : {"$ref" : "PromptVersionResponse.json"}
                 }
             }
         }

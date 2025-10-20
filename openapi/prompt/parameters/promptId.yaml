@@ -1,6 +1,6 @@
 name: promptId
 in: path
-description: The UUID or 'slug' of the prompt.
+description: The ID or 'slug' of the prompt.
 required: true
 allowEmptyValue: false
 schema:

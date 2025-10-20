@@ -1,6 +1,6 @@
 {
-    "description" : "READ-ONLY. A system-generated timestamp of when this resource was first created.",
     "type" : "string",
     "readOnly" : true,
-    "format" : "date-time"
+    "format" : "date-time",
+	"description" : "READ-ONLY. A system-generated timestamp of when this resource was first created."
 }

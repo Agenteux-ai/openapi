@@ -3,52 +3,63 @@
   "type" : "object",
   "properties" : {
     "account" : {
-      "type" : "object",
-      "properties" : {
-        "id" : {
-          "type" : "string",
-          "format" : "uuid"
-        }
-      },
-      "required" : [ "id" ],
-      "readOnly" : true
+      $ref: "../../../components/schemas/AccountReference.json"
     },
     "createdAt" : {
-      "type" : "string",
-      "readOnly" : true,
-      "format" : "date-time"
+      $ref: "../../../components/schemas/CreatedAt.json"
     },
     "description" : {
-      "type" : "string"
+      "type" : "string",
+	  "description" : "A human-readable description of the prompt."
     },
     "id" : {
       "type" : "string",
-      "format" : "uuid"
+      "format" : "uuid",
+	  "description" : "The system-generated unique identifier for the prompt.",
+	  "readOnly" : true
     },
     "name" : {
-      "type" : "string"
+      "type" : "string",
+	  "description" : "The human-readable name of the prompt."
     },
     "signature" : {
-      "type" : "string"
+      "type" : "string",
+	  "description" : "A hash signature of the prompt template and variable placeholders to detect changes."
     },
     "slug" : {
-      "type" : "string"
+      "type" : "string",
+	  "description" : "A URL-friendly unique name for the prompt."
     },
     "template" : {
-      "type" : "string"
+      "type" : "string",
+	  "description" : "The prompt template with placeholders for variables."
     },
     "updatedAt" : {
-      "type" : "string",
-      "readOnly" : true,
-      "format" : "date-time"
+      $ref: "../../../components/schemas/UpdatedAt.json"
     },
     "variables" : {
       "type" : "object",
-	  "$ref" : "PromptVariableList.json"
+      "additionalProperties" : {
+            "$ref" : "PromptVariable.json"
+      },
+	  "description" : "A map of variable names to their definitions used in the prompt template.",
+	  "example" : {
+        "user_name" : {
+          "type" : "string",
+          "description" : "The name of the user."
+        },
+        "age" : {
+          "type" : "integer",
+          "description" : "The age of the user.",
+          "default" : 18
+        }
+      }
     },
     "version" : {
       "type" : "string",
-	  "format" : "semantic-version"
+	  "format" : "semantic-version",
+	  "description" : "The semantic version of this prompt.",
+	  "example" : "1.0.0"
     }
   },
   "$id" : "https://schema.agenteux.com/prompt/PromptResponse.json",

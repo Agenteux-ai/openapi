@@ -4,7 +4,7 @@
         "_embedded" : {
             "type" : "object",
             "properties" : {
-                "apikeys" : {
+                "prompts" : {
                     "type" : "array",
                     "items" : {"$ref" : "PromptResponse.json"}
                 }

@@ -6,5 +6,5 @@
   },
   "$id" : "https://schema.agenteux.com/prompt/VariablesDto.json",
   "title" : "VariablesDto",
-  "description" : "JSON Schema definition for VariablesDto"
+  "description" : "A dicitionary mapping variable names to their values used to populate a prompt template."
 }

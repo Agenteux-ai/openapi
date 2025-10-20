@@ -24,7 +24,7 @@ delete:
   tags:
     - Prompts
   summary: Remove a prompt (and all its versions)
-  operationId: 'prompt::delete'
+  operationId: 'version::delete'
   responses:
     '204':
       $ref: ../../components/responses/204NoContent.yaml
@@ -38,13 +38,13 @@ patch:
   tags:
     - Prompts
   summary: Perform a partial update of a prompt
-  operationId: 'prompt::patch'
+  operationId: 'version::patch'
   requestBody:
     description: Prompt details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/PromptPatchDto.json
+          $ref: ../components/schemas/PromptVersionDto.json
     required: true
   responses:
     '200':

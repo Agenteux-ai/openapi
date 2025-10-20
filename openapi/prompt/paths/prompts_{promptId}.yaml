@@ -72,7 +72,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/PromptPatchDto.json
+          $ref: ../components/schemas/PromptDto.json
     required: true
   responses:
     '200':

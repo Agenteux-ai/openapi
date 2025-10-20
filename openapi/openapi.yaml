@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: "Agenteux.ai Platform REST API"
+  title: "Agenteux.ai REST APIs"
   termsOfService: https://agenteux.ai/terms/
   contact:
     name: Contact our support
@@ -19,14 +19,14 @@ tags:
     description: "Prompt versioning operations."
   - name: Schemas
     description: "Operations on output schemas."
-  - name: Schemas
+  - name: Schema Versions
     description: "Versioning operations for output schemas."
 x-tagGroups:
-  - name: Prompt Management
+  - name: "Agenteux: Prompt"
     tags:
       - Prompts
       - Prompt Versions
-  - name: Output Schema Management
+  - name: "Agenteux: Schema"
     tags:
       - Schemas
       - Schema Versions

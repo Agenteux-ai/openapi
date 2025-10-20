@@ -1,4 +1,18 @@
 get:
+  parameters:
+    - name: filter
+      in: query
+      description: >-
+        The filter crieteria to apply to the prompts list.
+
+
+        Allowed filter properties are `id` and `slug`.  For example, `filter="slug eq my-prompt"` to filter by slug.
+
+
+        See [Filtering](https://docs.example.com/api/filtering) for more details.
+      required: false
+      schema:
+        type: string
   tags:
     - Prompts
   summary: List all the Prompts (paginated)
@@ -25,7 +39,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/PromptDto.json
+          $ref: ../components/schemas/PromptCreateDto.json
     required: true
   responses:
     '201':

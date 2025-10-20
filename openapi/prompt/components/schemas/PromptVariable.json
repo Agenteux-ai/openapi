@@ -2,20 +2,23 @@
   "$schema" : "https://json-schema.org/draft/2020-12/schema",
   "type" : "object",
   "properties" : {
+    "defaultValue" : {
+      "type" : "string",
+	  "description" : "The default value for the variable if none is provided."
+    },
     "name" : {
-      "type" : "string"
+      "type" : "string",
+	  "description" : "The name of the variable as used in the prompt template. No spaces or special characters."
     },
     "type" : {
       "type" : "string",
-      "enum" : [ "string", "integer", "decimal", "boolean", "date" ],
-      "default" : "string"
-    },
-	"defaultValue" : {
-	  "type" : "string",
-	}
+      "enum" : [ "string", "integer", "decimal", "boolean", "date", "time", "timestamp" ],
+      "default" : "string",
+	  "description" : "The data type of the variable. If specified, inputs will be validated against this type."
+    }
   },
   "required" : [ "name" ],
   "$id" : "https://schema.agenteux.com/prompt/PromptVariable.json",
   "title" : "PromptVariable",
-  "description" : "JSON Schema definition for PromptVariable"
+  "description" : "Definition of a variable used in a prompt template."
 }

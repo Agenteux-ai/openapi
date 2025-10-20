@@ -1,4 +1,5 @@
 {
     "type" : "object",
-    "additionalProperties" : {"$ref" : "PromptVariable.json"}
+    "additionalProperties" : {"$ref" : "PromptVariable.json"},
+	"description" : "A map of variable names to their definitions used in the prompt template."
 }
