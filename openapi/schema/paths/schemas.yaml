@@ -1,0 +1,60 @@
+get:
+  parameters:
+    - name: filter
+      in: query
+      description: >-
+        The filter crieteria to apply to the schema list.
+
+
+        Allowed filter properties are `id` and `slug`.  For example, `filter="slug eq my-schema"` to filter by slug.
+
+
+        See [Filtering](https://docs.example.com/api/filtering) for more details.
+      required: false
+      schema:
+        type: string
+  tags:
+    - Schemas
+  summary: List all the Schemas (paginated)
+  operationId: 'schema::readAll'
+  responses:
+    '200':
+      description: An array of schemas and their details.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SchemaList.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+post:
+  tags:
+    - Schemas
+  summary: >-
+    Create a new schema
+  operationId: 'schema::create'
+  requestBody:
+    description: Schema details.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SchemaCreateDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful schema creation. Returns the newly-created schema details
+        including the initial version.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SchemaResponse.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml

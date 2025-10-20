@@ -58,6 +58,17 @@ paths:
     $ref: 'prompt/paths/prompts_{promptId}_versions_{version}_template.yaml'
   '/prompts/{promptId}/versions/{version}/variables':
     $ref: 'prompt/paths/prompts_{promptId}_versions_{version}_variables.yaml'
+
+  '/schemas':
+    $ref: 'schema/paths/schemas.yaml'
+  '/schemas/{schemaId}':
+    $ref: 'schema/paths/schemas_{schemaId}.yaml'
+  '/schemas/{schemaId}/versions':
+    $ref: 'schema/paths/schemas_{schemaId}_versions.yaml'
+  '/schemas/{schemaId}/versions/{version}':
+    $ref: 'schema/paths/schemas_{schemaId}_versions_{version}.yaml'
+  '/schemas/{schemaId}/versions/{version}/raw':
+    $ref: 'schema/paths/schemas_{schemaId}_versions_{version}_raw.yaml'
 security:
   - OAuth2: []
 components:

@@ -1,0 +1,20 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "template" : {
+      "type" : "string",
+	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
+      "maxLength" : 102400
+    },
+    "version" : {
+      "type" : "string",
+	  "format": "semantic-version",
+      "default" : "1.0.0",
+	  "description": "The version of the prompt, following semantic versioning. If not provided, the system will use the next `patch` version."
+    }
+  },
+  "$id" : "https://schema.agenteux.com/prompt/PromptVersionDto.json",
+  "title" : "PromptVersionDto",
+  "description" : "Properties used to create a new version of an existing Prompt"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "description" : {
+      "type" : "string",
+	  "description": "An optional human-readable description of the prompt.",
+	  "maxLength": 1024
+    },
+    "name" : {
+      "type" : "string",
+	  "description": "A human-readable name for the prompt.",
+	  "maxLength": 256
+    },
+    "slug" : {
+      "type" : "string",
+	  "description": "A URL-friendly identifier for the prompt. If one is not provided, it is system-generated from the name.",
+	  "maxLength": 256
+    },
+    "template" : {
+      "type" : "string",
+	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
+	  "maxLength": 102400
+    },
+    "version" : {
+      "type" : "string",
+	  "format": "semantic-version",
+      "default" : "1.0.0"
+    }
+  },
+  "required" : [ "name", "template" ],
+  "$id" : "https://schema.agenteux.com/prompt/PromptCreateDto.json",
+  "title" : "PromptCreateDto",
+  "description" : "Properties used to create a brand-new Prompt"
+}

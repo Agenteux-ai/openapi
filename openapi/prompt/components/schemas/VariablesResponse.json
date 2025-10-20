@@ -1,0 +1,48 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "createdAt" : {
+      $ref: "../../../components/schemas/CreatedAt.json"
+    },
+    "id" : {
+      "type" : "string",
+      "format" : "uuid",
+	  "description": "The system-generated unique identifier for the prompt version."
+    },
+    "prompt" : {
+      "type" : "object",
+	  "readOnly" : true,
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "slug" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "pattern" : "[a-z_\\-0-9]+"
+        }
+      }
+    },
+    "updatedAt" : {
+      $ref: "../../../components/schemas/UpdatedAt.json"
+    },
+    "variables" : {
+      "type" : "object",
+	  "additionalProperties" : {
+        $ref : "PromptVariable.json"
+      }
+    },
+    "version" : {
+      "type" : "string",
+	  "format" : "semantic-versioning",
+	  "description": "The semantic version of this prompt version.",
+	  "example" : "1.0.0",
+    }
+  },
+  "readOnly" : true,
+  "$id" : "https://schema.agenteux.com/prompt/VariablesResponse.json",
+  "title" : "VariablesResponse",
+  "description" : "JSON Schema definition for VariablesResponse"
+}

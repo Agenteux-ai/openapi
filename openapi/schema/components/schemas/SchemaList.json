@@ -1,0 +1,14 @@
+{
+    "type" : "object",
+    "properties" : {
+        "_embedded" : {
+            "type" : "object",
+            "properties" : {
+                "schemas" : {
+                    "type" : "array",
+                    "items" : {"$ref" : "SchemaResponse.json"}
+                }
+            }
+        }
+    }
+}

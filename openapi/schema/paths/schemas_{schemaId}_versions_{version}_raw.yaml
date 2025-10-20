@@ -1,0 +1,22 @@
+parameters:
+  - $ref: ../parameters/schemaId.yaml
+  - $ref: ../parameters/version.yaml
+get:
+  tags:
+    - Schema Versions
+  summary: Retrieve the raw schema for a specific schema version
+  operationId: 'schema:version:raw'
+  responses:
+    '200':
+      description: The raw schema for the specific version.
+      content:
+        text/plain:
+          schema:
+            type: string
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  deprecated: false

@@ -5,7 +5,7 @@ get:
   tags:
     - Prompt Versions
   summary: Retrieve a specific prompt version
-  operationId: 'version::read'
+  operationId: 'prompt:version:read'
   responses:
     '200':
       description: Prompt details for the specific version.
@@ -22,9 +22,9 @@ get:
   deprecated: false
 delete:
   tags:
-    - Prompts
-  summary: Remove a prompt (and all its versions)
-  operationId: 'version::delete'
+    - Prompt Versions
+  summary: Remove a specific prompt version
+  operationId: 'prompt:version:delete'
   responses:
     '204':
       $ref: ../../components/responses/204NoContent.yaml
@@ -38,7 +38,7 @@ patch:
   tags:
     - Prompts
   summary: Perform a partial update of a prompt
-  operationId: 'version::patch'
+  operationId: 'prompt:version:patch'
   requestBody:
     description: Prompt details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.
     content:
@@ -67,7 +67,7 @@ post:
   tags:
     - Prompt Versions
   summary: Perform variable substitution on a prompt version
-  operationId: 'version::substitute'
+  operationId: 'prompt:version:substitute'
   requestBody:
     description: Submit the variables as name/value pairs to be substituted into the prompt version.
     content:
@@ -90,5 +90,3 @@ post:
       $ref: ../../components/responses/403Forbidden.yaml
     '404':
       $ref: ../../components/responses/404NotFound.yaml
-    '409':
-      $ref: ../../components/responses/409Conflict.yaml

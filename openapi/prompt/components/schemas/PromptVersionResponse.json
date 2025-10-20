@@ -1,0 +1,63 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+	"createdAt" : {
+	  $ref: "../../../components/schemas/CreatedAt.json"
+	},
+    "description" : {
+      "type" : "string",
+	  "description": "An human-readable description of the prompt.",
+    },
+    "id" : {
+      "type" : "string",
+      "format" : "uuid",
+	  "description": "The system-generated unique identifier for this version of the prompt.",
+	  "readOnly": true
+    },
+    "prompt" : {
+      "type" : "object",
+	  "description": "The parent prompt to which this version belongs.",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        }
+      }
+    },
+	"name" : {
+	  "type" : "string",
+	  "description" : "The human-readable name of the prompt."
+	},
+	"signature" : {
+	  "type" : "string",
+	  "description" : "A hash signature of the prompt template and variable placeholders to detect changes."
+	},
+	"slug" : {
+	  "type" : "string",
+	  "description" : "A URL-friendly unique name for the prompt."
+	},
+	"template" : {
+	  "type" : "string",
+	  "description" : "The prompt template with placeholders for variables."
+	},
+    "updatedAt" : {
+      $ref: "../../../components/schemas/UpdatedAt.json"
+    },
+    "variables" : {
+      "type" : "object",
+      "additionalProperties" : {
+        $ref : "PromptVariable.json"
+      }
+    },
+    "version" : {
+      "type" : "string",
+      "format" : "semantic-versioning",
+	  "description": "The semantic version of this prompt version.",
+	  "example" : "1.0.0",
+    }
+  },
+  "$id" : "https://schema.agenteux.com/prompt/PromptVersionResponse.json",
+  "title" : "PromptVersionResponse",
+  "description" : "JSON Schema definition for PromptVersionResponse"
+}

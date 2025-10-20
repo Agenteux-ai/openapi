@@ -1,17 +1,17 @@
 parameters:
-  - $ref: ../parameters/promptId.yaml
+  - $ref: ../parameters/schemaId.yaml
 get:
   tags:
-    - Prompts
-  summary: Retrieve a prompt
-  operationId: 'prompt::read'
+    - Schemas
+  summary: Retrieve a schema
+  operationId: 'schema::read'
   responses:
     '200':
-      description: Prompt details including the latest prompt text and version.
+      description: Schema details including the latest schema text and version.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/PromptResponse.json
+            $ref: ../components/schemas/SchemaResponse.json
     '401':
       $ref: ../../components/responses/401Unauthorized.yaml
     '403':
@@ -21,23 +21,23 @@ get:
   deprecated: false
 put:
   tags:
-    - Prompts
-  summary: Update/replace a prompt
-  operationId: 'prompt::update'
+    - Schemas
+  summary: Update/replace a schema
+  operationId: 'schema::update'
   requestBody:
-    description: All the desired prompt details. Only name, slug, and description can be updated.
+    description: All the desired schema details. Only name, slug, and description can be updated.
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/PromptDto.json
+          $ref: ../components/schemas/SchemaDto.json
     required: true
   responses:
     '200':
-      description: Prompt details including the latest prompt text and version.
+      description: Schema details including the latest schema text and version.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/PromptResponse.json
+            $ref: ../components/schemas/SchemaResponse.json
     '400':
       $ref: ../../components/responses/400BadRequest.yaml
     '401':
@@ -50,9 +50,9 @@ put:
       $ref: ../../components/responses/409Conflict.yaml
 delete:
   tags:
-    - Prompts
-  summary: Remove a prompt (and all its versions)
-  operationId: 'prompt::delete'
+    - Schemas
+  summary: Remove a schema (and all its versions)
+  operationId: 'schema::delete'
   responses:
     '204':
       $ref: ../../components/responses/204NoContent.yaml
@@ -64,23 +64,23 @@ delete:
       $ref: ../../components/responses/404NotFound.yaml
 patch:
   tags:
-    - Prompts
-  summary: Perform a partial update of a prompt
-  operationId: 'prompt::patch'
+    - Schemas
+  summary: Perform a partial update of a schema
+  operationId: 'schema::patch'
   requestBody:
-    description: Prompt details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.
+    description: Schema details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/PromptDto.json
+          $ref: ../components/schemas/SchemaDto.json
     required: true
   responses:
     '200':
-      description: The entire newly-updated prompt
+      description: The entire newly-updated schema details including the latest schema text and version.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/PromptResponse.json
+            $ref: ../components/schemas/SchemaResponse.json
     '400':
       $ref: ../../components/responses/400BadRequest.yaml
     '401':
@@ -93,23 +93,23 @@ patch:
       $ref: ../../components/responses/409Conflict.yaml
 post:
   tags:
-    - Prompts
-  summary: Perform variable substitution on a prompt (using the latest version)
-  operationId: 'prompt::substitute'
+    - Schemas
+  summary: Perform data verification against a schema
+  operationId: 'schema::validate'
   requestBody:
-    description: Submit the variables as name/value pairs to be substituted into the prompt.
+    description: The data to be verified against the schema.
     content:
-      application/json:
+      text/plain:
         schema:
-          $ref: ../components/schemas/VariablesDto.json
+          type: string
     required: true
   responses:
     '200':
-      description: The entire prompt metadata including the prompt text with variables substituted.
+      description: The result of the data verification.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/PromptResponse.json
+            $ref: ../components/schemas/ValidationResult.json
     '400':
       $ref: ../../components/responses/400BadRequest.yaml
     '401':

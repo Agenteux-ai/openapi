@@ -1,0 +1,77 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "createdAt" : {
+      "type" : "string",
+      "readOnly" : true,
+      "format" : "date-time"
+    },
+    "description" : {
+      "type" : "string"
+    },
+    "id" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "mediaType" : {
+      "type" : "string"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "raw" : {
+      "type" : "string"
+    },
+    "schema" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        }
+      },
+      "required" : [ "id" ]
+    },
+    "signature" : {
+      "type" : "string"
+    },
+    "slug" : {
+      "type" : "string"
+    },
+    "updatedAt" : {
+      "type" : "string",
+      "readOnly" : true,
+      "format" : "date-time"
+    },
+    "version" : {
+      "type" : "object",
+      "properties" : {
+        "buildTags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "major" : {
+          "type" : "integer"
+        },
+        "minor" : {
+          "type" : "integer"
+        },
+        "patch" : {
+          "type" : "integer"
+        },
+        "suffixTags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "$id" : "https://schema.agenteux.com/schema/SchemaVersionResponse.json",
+  "title" : "SchemaVersionResponse",
+  "description" : "JSON Schema definition for SchemaVersionResponse"
+}

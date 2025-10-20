@@ -1,0 +1,47 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "description" : {
+      "type" : [ "string", "null" ]
+    },
+    "name" : {
+      "type" : [ "string", "null" ]
+    },
+    "schema" : {
+      "type" : [ "string", "null" ]
+    },
+    "slug" : {
+      "type" : [ "string", "null" ]
+    },
+    "version" : {
+      "type" : [ "object", "null" ],
+      "properties" : {
+        "buildTags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "major" : {
+          "type" : "integer"
+        },
+        "minor" : {
+          "type" : "integer"
+        },
+        "patch" : {
+          "type" : "integer"
+        },
+        "suffixTags" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "$id" : "https://schema.agenteux.com/schema/SchemaCreateDto.json",
+  "title" : "SchemaCreateDto",
+  "description" : "JSON Schema definition for SchemaCreateDto"
+}

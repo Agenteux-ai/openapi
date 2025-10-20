@@ -1,0 +1,15 @@
+{
+    "type" : "object",
+	"description" : "A list of versions for a specific schema.",
+    "properties" : {
+        "_embedded" : {
+            "type" : "object",
+            "properties" : {
+                "versions" : {
+                    "type" : "array",
+                    "items" : {"$ref" : "SchemaVersionResponse.json"}
+                }
+            }
+        }
+    }
+}

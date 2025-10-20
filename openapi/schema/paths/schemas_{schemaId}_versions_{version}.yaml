@@ -1,0 +1,63 @@
+parameters:
+  - $ref: ../parameters/schemaId.yaml
+  - $ref: ../parameters/version.yaml
+get:
+  tags:
+    - Schema Versions
+  summary: Retrieve a specific schema version
+  operationId: 'schema:version:read'
+  responses:
+    '200':
+      description: Schema details for the specific version.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SchemaResponse.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  deprecated: false
+delete:
+  tags:
+    - Schema Versions
+  summary: Remove a schema (and all its versions)
+  operationId: 'schema:version:delete'
+  responses:
+    '204':
+      $ref: ../../components/responses/204NoContent.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+post:
+  tags:
+    - Schema Versions
+  summary: Perform data verification against a specific schema version
+  operationId: 'schema:version:verification'
+  requestBody:
+    description: Data to be verified against the schema.
+    content:
+      text/plain:
+        schema:
+          type: string
+    required: true
+  responses:
+    '200':
+      description: The result of the data verification.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ValidationResult.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml

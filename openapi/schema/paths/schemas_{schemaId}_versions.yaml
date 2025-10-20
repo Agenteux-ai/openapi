@@ -1,46 +1,46 @@
 parameters:
-  - $ref: ../parameters/promptId.yaml
+  - $ref: ../parameters/schemaId.yaml
 get:
   tags:
-    - Prompt Versions
-  summary: List all the versions for a prompt (paginated)
-  operationId: 'version::readAll'
+    - Schema Versions
+  summary: List all the versions for a schema (paginated)
+  operationId: 'schema:version:readAll'
   responses:
     '200':
-      description: An array of prompt versions and their details.
+      description: An array of schema versions and their details.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/PromptVersionList.json
+            $ref: ../components/schemas/SchemaVersionList.json
     '401':
       $ref: ../../components/responses/401Unauthorized.yaml
     '403':
       $ref: ../../components/responses/403Forbidden.yaml
 post:
   tags:
-    - Prompt Versions
+    - Schema Versions
   summary: >-
-    Create a new prompt version
-  operationId: 'version::create'
+    Create a new schema version
+  operationId: 'schema:version:create'
   requestBody:
-    description: Prompt details.
+    description: Schema details.
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/PromptDto.json
-      application/vnd.ai.agenteux.prompt-template+json:
+          $ref: ../components/schemas/SchemaCreateDto.json
+      application/vnd.ai.agenteux.schema.raw:
         schema:
           type: string
     required: true
   responses:
     '201':
       description: >-
-        Successful prompt creation. Returns the newly-created prompt
-        details including the initial version and description of any variables.
+        Successful schema creation. Returns the newly-created schema
+        details including the initial version.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/PromptResponse.json
+            $ref: ../components/schemas/SchemaResponse.json
     '400':
       $ref: ../../components/responses/400BadRequest.yaml
     '401':
