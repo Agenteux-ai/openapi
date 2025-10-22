@@ -3,16 +3,22 @@
   "type" : "object",
   "properties" : {
     "description" : {
-      "type" : [ "string", "null" ]
+      "type" : [ "string", "null" ],
+      "description": "A human-readable description of the schema.",
+      "maxLength": 1024
     },
     "name" : {
-      "type" : [ "string", "null" ]
+      "type" : [ "string", "null" ],
+      "description": "The human-readable name of the schema.",
+      "maxLength": 256
     },
     "slug" : {
-      "type" : [ "string", "null" ]
+      "type" : [ "string", "null" ],
+      "description": "A URL-friendly identifier for the schema. If one is not provided, it is system-generated from the name.",
+      "maxLength": 256
     }
   },
   "$id" : "https://schema.agenteux.com/schema/SchemaDto.json",
   "title" : "SchemaDto",
-  "description" : "JSON Schema definition for SchemaDto"
+  "description" : "Properties for updating (e.g., via PUT or PATCH) a schema."
 }

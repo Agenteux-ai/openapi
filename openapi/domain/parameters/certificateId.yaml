@@ -1,0 +1,7 @@
+name: certificateId
+in: path
+description: The ID or 'slug' of the certificate.
+required: true
+allowEmptyValue: false
+schema:
+  type: string

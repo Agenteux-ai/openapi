@@ -1,0 +1,90 @@
+parameters:
+  - $ref: ../parameters/policyId.yaml
+get:
+  tags:
+    - Policies
+  summary: Read a policy definition (by ID or slug)
+  operationId: 'Policy::read'
+  responses:
+    '200':
+      description: Policy definition
+      content:
+        application/json:
+          schema:
+            $ref: ../PolicyDefinition.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  security:
+    - OAuth2: []
+put:
+  tags:
+    - Policies
+  summary: Update a policy definition (by its ID or slug)
+  operationId: 'Policy::update'
+  requestBody:
+    description: Policy definition data
+    content:
+      application/json:
+        schema:
+          $ref: ../PolicyDefinition.json
+    required: true
+  responses:
+    '204':
+      description: No content
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Policies
+  summary: Remove a policy definition (by its ID or slug)
+  operationId: 'Policy::delete'
+  responses:
+    '204':
+      description: No content
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+patch:
+  tags:
+    - Policies
+  summary: Perform a partial update of a policy definition (by its ID or slug)
+  operationId: 'Policy::patch'
+  requestBody:
+    description: Policy definition data to be updated
+    content:
+      application/json:
+        schema:
+          $ref: ../PolicyDefinitionDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated policy definition
+      content:
+        application/json:
+          schema:
+            $ref: ../PolicyDefinition.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

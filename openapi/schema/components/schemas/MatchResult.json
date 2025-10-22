@@ -2,11 +2,26 @@
   "$schema" : "https://json-schema.org/draft/2020-12/schema",
   "type" : "object",
   "properties" : {
-    "matched" : {
+    "isValid" : {
       "type" : "boolean"
     },
-    "message" : {
+    "response" : {
       "type" : "string"
+    },
+    "messages" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "loglevel" : {
+            "type" : "string",
+            "enum" : [ "DEBUG", "INFO", "WARNING", "ERROR", "FATAL", "NONE" ]
+          },
+          "message" : {
+            "type" : "string"
+          }
+        }
+      }
     }
   },
   "$id" : "https://schema.agenteux.com/schema/MatchResult.json",

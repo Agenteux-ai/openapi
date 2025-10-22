@@ -1,0 +1,49 @@
+get:
+  tags:
+    - Rate Plans
+  summary: List all the rate plans (paginated)
+  operationId: 'RatePlan::readAll'
+  responses:
+    '200':
+      description: An array of rate plans and associated configuration
+      content:
+        application/json:
+          schema:
+            $ref: ../RatePlans.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+post:
+  tags:
+    - Rate Plans
+  summary: Create a new rate plan
+  operationId: 'RatePlan::create'
+  requestBody:
+    description: Rate plan configuration
+    content:
+      application/json:
+        schema:
+          $ref: ../RatePlanDefinitionDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful rate plan creation. Returns the newly-created rate plan
+        configuration
+      content:
+        application/json:
+          schema:
+            $ref: ../RatePlanDefinition.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

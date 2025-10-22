@@ -13,14 +13,22 @@ info:
   description:
     $ref: ./info-description.md
 tags:
-  - name: Prompts
-    description: "Prompt management operations."
-  - name: Prompt Versions
-    description: "Prompt versioning operations."
-  - name: Schemas
-    description: "Operations on output schemas."
-  - name: Schema Versions
-    description: "Versioning operations for output schemas."
+  - $ref: tenants/tags/Accounts.yaml
+  - $ref: oidc/tags/ClientApplications.yaml
+  - $ref: ratelimits/tags/ApiKeys.yaml
+  - $ref: ratelimits/tags/JwtVerifiers.yaml
+  - $ref: ratelimits/tags/Policies.yaml
+  - $ref: prompt/tags/Prompts.yaml
+  - $ref: prompt/tags/PromptVersions.yaml
+  - $ref: ratelimits/tags/RateLimiting.yaml
+  - $ref: ratelimits/tags/RateLimitingMetrics.yaml
+  - $ref: ratelimits/tags/RatePlans.yaml
+  - $ref: schema/tags/Schemas.yaml
+  - $ref: schema/tags/SchemaVersions.yaml
+  - name: Custom Domains
+    description: "Operations related to defining and management of white-label custom domains."
+  - name: Certificates
+    description: "Operations related to SSL/TLS certificates for custom domains."
 x-tagGroups:
   - name: "Agenteux: Prompt"
     tags:
@@ -30,12 +38,24 @@ x-tagGroups:
     tags:
       - Schemas
       - Schema Versions
-  - name: Content Delivery Network (CDN)
+  - name: "Agenteux: Domain"
     tags:
-      - Prompt Versions
-  - name: Schema Management
+      - Custom Domains
+      - Certificates
+  - name: "Agenteux: Control"
     tags:
-      - Schemas
+      - API Keys
+      - JWT Verifiers
+      - Policies
+      - Rate Limiting
+      - Rate Limiting Metrics
+      - Rate Plans
+
+  - name: "Administration"
+    tags:
+      - Accounts
+      - Client Applications
+
 servers:
   - url: https://{organizationId}.agenteux.ai/api/v1
     variables:
@@ -46,6 +66,7 @@ servers:
           to you rather than the organization name as the latter causes an extra lookup to find the ID and also has the
           potential to break if the organization name is changed.
 paths:
+  #Prompt Management paths
   '/prompts':
     $ref: 'prompt/paths/prompts.yaml'
   '/prompts/{promptId}':
@@ -59,6 +80,7 @@ paths:
   '/prompts/{promptId}/versions/{version}/variables':
     $ref: 'prompt/paths/prompts_{promptId}_versions_{version}_variables.yaml'
 
+  #Schema Management paths
   '/schemas':
     $ref: 'schema/paths/schemas.yaml'
   '/schemas/{schemaId}':
@@ -69,6 +91,53 @@ paths:
     $ref: 'schema/paths/schemas_{schemaId}_versions_{version}.yaml'
   '/schemas/{schemaId}/versions/{version}/raw':
     $ref: 'schema/paths/schemas_{schemaId}_versions_{version}_raw.yaml'
+
+  #Custom Domain Management paths
+  '/domains':
+    $ref: 'domain/paths/domains.yaml'
+#  '/domains/{domainId}':
+#    $ref: 'domain/paths/domains_{domainId}.yaml'
+#  '/domains/{domainId}/status':
+#    $ref: 'domain/paths/domains_{domainId}_status.yaml'
+#  '/domains/{domainId}/certificates':
+#    $ref: 'domain/paths/domains_{domainId}_certificates.yaml'
+#  '/domains/{domainId}/certificates/{certificateId}':
+#    $ref: 'domain/paths/domains_{domainId}_certificates_{certificateId}.yaml'
+
+  #Administration paths
+  /accounts:
+    $ref: tenants/paths/accounts.yaml
+  '/accounts/{accountId}':
+    $ref: tenants/paths/accounts_{accountId}.yaml
+  /clients:
+    $ref: oidc/paths/clients.yaml
+  '/clients/{clientId}':
+    $ref: oidc/paths/clients_{clientId}.yaml
+
+  #Rate limiting and access control paths
+  '/apikeys':
+    $ref: ratelimits/paths/apikeys.yaml
+  '/apikeys/{apikey}':
+    $ref: ratelimits/paths/apikeys_{apikey}.yaml
+  /jwtverifiers:
+    $ref: ratelimits/paths/jwtverifiers.yaml
+  '/jwtverifiers/{jwtVerifierId}':
+    $ref: ratelimits/paths/jwtverifiers_{jwtVerifierId}.yaml
+  '/limits':
+    $ref: ratelimits/paths/limits.yaml
+  '/metrics/{apikey}':
+    $ref: ratelimits/paths/metrics_{apikey}.yaml
+  '/policies':
+    $ref: ratelimits/paths/policies.yaml
+  '/policies/{policyId}':
+    $ref: ratelimits/paths/policies_{policyId}.yaml
+  '/rateplans':
+    $ref: ratelimits/paths/rateplans.yaml
+  '/rateplans/{rateplanId}':
+    $ref: ratelimits/paths/rateplans_{rateplanId}.yaml
+  '/rateplans/{rateplanId}/apikeys':
+    $ref: ratelimits/paths/rateplans_{rateplanId}_apikeys.yaml
+
 security:
   - OAuth2: []
 components:

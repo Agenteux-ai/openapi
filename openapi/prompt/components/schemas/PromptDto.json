@@ -20,5 +20,5 @@
   },
   "$id" : "https://schema.agenteux.com/prompt/PromptDto.json",
   "title" : "PromptDto",
-  "description" : "Properties for updating (e.g., PUT or PATCH) a prompt."
+  "description" : "Properties for updating (e.g., via PUT or PATCH) a prompt."
 }

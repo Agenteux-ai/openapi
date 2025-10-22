@@ -1,0 +1,61 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "createdAt" : {
+      $ref: "../components/schemas/CreatedAt.json"
+    },
+    "description" : {
+      "type" : "string",
+      "maxLength" : 1024
+    },
+    "extended" : {
+      "type" : "object",
+      "properties" : {
+        "map" : {
+          "type" : "object"
+        }
+      }
+    },
+    "id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "readOnly" : true
+    },
+    "name" : {
+      "type" : "string",
+      "maxLength" : 256
+    },
+    "organization" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        }
+      },
+      "readOnly" : true
+    },
+    "parent" : {
+      "$ref" : "../components/schemas/AccountReference.json"
+    },
+    "region" : {
+      "type" : "string",
+      "enum" : ["NORTH_AMERICA"]
+    },
+    "schema" : {
+      "$ref" : "../components/schemas/UrlReference.json"
+    },
+    "slug" : {
+      "type" : "string",
+      "pattern" : "[a-z_\\-0-9]+"
+    },
+    "updatedAt" : {
+      $ref: "../components/schemas/UpdatedAt.json"
+    }
+  },
+  "required" : [ "name", "region", "slug" ],
+  "$id" : "https://schema.autheus.com/tenants/Account.json",
+  "title" : "Account",
+  "description" : "JSON Schema definition for Account"
+}

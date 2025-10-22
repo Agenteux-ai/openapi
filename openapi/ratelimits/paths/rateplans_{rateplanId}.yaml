@@ -1,0 +1,88 @@
+parameters:
+  - $ref: ../parameters/ratePlanId.yaml
+get:
+  tags:
+    - Rate Plans
+  summary: Read a rate plan (by ID or slug)
+  operationId: 'RatePlan::read'
+  responses:
+    '200':
+      description: Rate plan configuration
+      content:
+        application/json:
+          schema:
+            $ref: ../RatePlanDefinition.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+put:
+  tags:
+    - Rate Plans
+  summary: Update a rate plan (by its ID or slug)
+  operationId: 'RatePlan::update'
+  requestBody:
+    description: Rate plan configuration data
+    content:
+      application/json:
+        schema:
+          $ref: ../RatePlanDefinition.json
+    required: true
+  responses:
+    '204':
+      description: No content
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Rate Plans
+  summary: Remove a rate plan (by its ID or slug)
+  operationId: 'RatePlan::delete'
+  responses:
+    '204':
+      description: No content
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+patch:
+  tags:
+    - Rate Plans
+  summary: Perform a partial update of a rate plan (by its ID or slug)
+  operationId: 'RatePlan::patch'
+  requestBody:
+    description: Rate plan configuration data to be updated
+    content:
+      application/json:
+        schema:
+          $ref: ../RatePlanDefinitionDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated rate plan configuration
+      content:
+        application/json:
+          schema:
+            $ref: ../RatePlanDefinition.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

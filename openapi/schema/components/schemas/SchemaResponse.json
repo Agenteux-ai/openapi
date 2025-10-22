@@ -3,27 +3,18 @@
   "type" : "object",
   "properties" : {
     "account" : {
-      "type" : "object",
-      "properties" : {
-        "id" : {
-          "type" : "string",
-          "format" : "uuid"
-        }
-      },
-      "required" : [ "id" ],
-      "readOnly" : true
+      $ref: "../../../components/schemas/AccountReference.json"
     },
     "createdAt" : {
-      "type" : "string",
-      "readOnly" : true,
-      "format" : "date-time"
+      $ref: "../../../components/schemas/CreatedAt.json"
     },
     "description" : {
       "type" : "string"
     },
     "id" : {
       "type" : "string",
-      "format" : "uuid"
+      "format" : "uuid",
+      "readOnly" : true
     },
     "mediaType" : {
       "type" : "string"
@@ -41,35 +32,13 @@
       "type" : "string"
     },
     "updatedAt" : {
-      "type" : "string",
-      "readOnly" : true,
-      "format" : "date-time"
+      $ref: "../../../components/schemas/UpdatedAt.json"
     },
     "version" : {
-      "type" : "object",
-      "properties" : {
-        "buildTags" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "major" : {
-          "type" : "integer"
-        },
-        "minor" : {
-          "type" : "integer"
-        },
-        "patch" : {
-          "type" : "integer"
-        },
-        "suffixTags" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
+      "type" : "string",
+      "format" : "semantic-version",
+	  "description" : "The semantic version string representing the schema version.",
+	  "example" : "1.0.0"
     }
   },
   "$id" : "https://schema.agenteux.com/schema/SchemaResponse.json",

@@ -1,0 +1,66 @@
+get:
+  parameters:
+    - name: filter
+      in: query
+      description: >-
+        The filter crieteria to apply to the custom domain list.
+
+
+        Allowed filter properties are `id` and `slug`.  For example, `filter="slug eq my-domain"` to filter by slug.
+
+
+        See [Filtering](https://docs.example.com/api/filtering) for more details.
+      required: false
+      schema:
+        type: string
+  tags:
+    - Custom Domains
+  summary: List all the Custom Domains (paginated)
+  description: >-
+    Retrieve a paginated list of all custom domains associated with your organization. Filtering is supported
+    via the `filter` query parameter.
+  operationId: 'domain::readAll'
+  responses:
+    '200':
+      description: An array of custom domains and their details.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DomainList.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+post:
+  tags:
+    - Custom Domains
+  summary: Create a new custom domain
+  description: >-
+    Note that after creating a custom domain, you will
+    need to set up DNS records with your domain provider to verify domain ownership
+    and to point to Agenteux.
+  operationId: 'domain::create'
+  requestBody:
+    description: Schema details.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CustomDomainDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful schema creation. Returns the newly-created schema details
+        including the initial version.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CustomDomain.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

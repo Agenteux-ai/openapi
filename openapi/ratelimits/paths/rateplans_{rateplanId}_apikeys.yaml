@@ -1,0 +1,54 @@
+parameters:
+  - $ref: ../parameters/ratePlanId.yaml
+get:
+  tags:
+    - Rate Plans
+    - API Keys
+  summary: List all the static API keys assigned to a rate plan
+  operationId: 'RatePlan::readApiKeys'
+  responses:
+    '200':
+      description: An array of API keys and associated metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../ApiKeys.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+  security:
+    - OAuth2: []
+post:
+  tags:
+    - Rate Plans
+    - API Keys
+  summary: >-
+    Create a new static API key using this rate plan
+  operationId: 'RatePlan::createApiKeys'
+  requestBody:
+    description: API key metadata
+    content:
+      application/json:
+        schema:
+          $ref: ../RatePlanApiKey.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful API key creation. Returns the newly-created API key
+        metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../ApiKey.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml

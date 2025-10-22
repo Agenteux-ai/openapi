@@ -1,0 +1,14 @@
+{
+    "type" : "object",
+    "properties" : {
+        "_embedded" : {
+            "type" : "object",
+            "properties" : {
+                "domains" : {
+                    "type" : "array",
+                    "items" : {"$ref" : "CustomDomain.json"}
+                }
+            }
+        }
+    }
+}

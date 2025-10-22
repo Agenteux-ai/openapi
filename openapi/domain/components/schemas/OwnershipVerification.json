@@ -1,0 +1,25 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "readOnly" : true,
+  "properties" : {
+    "status" : {
+      "type" : "string",
+      "enum" : [ "VERIFICATION_REQUIRED", "CERTIFICATE_REQUIRED", "ACTIVE" ],
+      "description": "The current verification-of-control status of the custom domain."
+    },
+    "type" : {
+      "type" : "string",
+      "const" : "TXT",
+      "description": "The method used to verify control of the custom domain. This is the DNS record type that needs to be created."
+    },
+    "value" : {
+      "type" : "string",
+      "maxLength" : 256,
+      "description": "The value that needs to be set for the DNS record to verify control of the custom domain."
+    }
+  },
+  "$id" : "https://schema.agenteux.com/domain/OwnershipVerification.json",
+  "title" : "OwnershipVerification",
+  "description": "Information about the verification-of-control status for the custom domain. This data is system-mangaged and read-only and, therefore, cannot be set by the user. It is provided for informational and troubleshooting purposes only."
+}

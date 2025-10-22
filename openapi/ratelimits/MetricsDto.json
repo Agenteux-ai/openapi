@@ -1,0 +1,51 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "quota" : {
+      "type" : "object",
+      "properties" : {
+        "capacity" : {
+          "type" : "integer"
+        },
+        "period" : {
+          "type" : "string",
+          "enum" : [ "HOUR", "DAY", "WEEK", "MONTH" ]
+        },
+        "renewsAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "tokensPerPeriod" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "rateplan" : {
+      "$ref" : "RatePlanDefinitionReference.json"
+    },
+    "throttle" : {
+      "type" : "object",
+      "properties" : {
+        "capacity" : {
+       	  "type" : "integer"
+        },
+        "lastTick" : {
+          "type" : "integer"
+        },
+        "maxCapacity" : {
+          "type" : "integer"
+        },
+        "periodLengthMillis" : {
+          "type" : "integer"
+        },
+        "tokensPerPeriod" : {
+          "type" : "integer"
+        }
+      }
+    }
+  },
+  "$id" : "https://schema.autheus.com/ratelimits/MetricsDto.json",
+  "title" : "MetricsDto",
+  "description" : "A read-only model detailing a metrics snapshot for an API key"
+}

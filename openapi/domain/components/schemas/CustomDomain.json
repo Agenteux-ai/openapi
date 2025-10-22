@@ -1,0 +1,37 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "account" : {
+      $ref : "../../../components/schemas/AccountReference.json"
+    },
+    "createdAt" : {
+      $ref: "../../../components/schemas/createdAt.json"
+    },
+    "id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "readOnly" : true
+    },
+    "name" : {
+      "type" : "string",
+      "maxLength" : 256
+    },
+    "origin" : {
+      "type" : "string",
+      "maxLength" : 256,
+	  "format": "url",
+	  "description": "The origin domain that the custom domain points to."
+    },
+    "updatedAt" : {
+      $ref: "../../../components/schemas/updatedAt.json"
+    },
+    "verification" : {
+      $ref : "OwnershipVerification.json"
+    }
+  },
+  "required" : [ "name", "origin" ],
+  "$id" : "https://schema.agenteux.com/domain/CustomDomain.json",
+  "title" : "CustomDomain",
+  "description" : "JSON Schema definition for CustomDomain"
+}
