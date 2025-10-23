@@ -25,7 +25,8 @@ put:
   summary: Update/replace a prompt
   operationId: 'prompt::update'
   requestBody:
-    description: All the desired prompt details. Only name, slug, and description can be updated.
+    description: |
+      All the desired prompt details. Only name, slug, and description can be updated.
     content:
       application/json:
         schema:
@@ -66,6 +67,10 @@ patch:
   tags:
     - Prompts
   summary: Perform a partial update of a prompt
+  description: |
+    This method observes [JSON patch](https://jsonpatch.com/) semantics. Any properties that are explicity set
+    (e.g. to empty) will update the prompt configuration. Properties not included in
+    the body will not effect the prompt configuration.
   operationId: 'prompt::patch'
   requestBody:
     description: Prompt details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.

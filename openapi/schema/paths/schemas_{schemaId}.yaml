@@ -66,6 +66,10 @@ patch:
   tags:
     - Schemas
   summary: Perform a partial update of a schema
+  description: |
+    This method observes [JSON patch](https://jsonpatch.com/) semantics. Any properties that are explicity set
+    (e.g. to empty) will update the schema configuration. Properties not included in
+    the body will not effect the schema configuration.
   operationId: 'schema::patch'
   requestBody:
     description: Schema details to be updated. Only the fields provided will be updated. Only name, slug, and description can be updated with PATCH.

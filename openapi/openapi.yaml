@@ -25,10 +25,8 @@ tags:
   - $ref: ratelimits/tags/RatePlans.yaml
   - $ref: schema/tags/Schemas.yaml
   - $ref: schema/tags/SchemaVersions.yaml
-  - name: Custom Domains
-    description: "Operations related to defining and management of white-label custom domains."
-  - name: Certificates
-    description: "Operations related to SSL/TLS certificates for custom domains."
+  - $ref: domain/tags/CustomDomains.yaml
+  - $ref: domain/tags/Certificates.yaml
 x-tagGroups:
   - name: "Agenteux: Prompt"
     tags:
@@ -66,6 +64,16 @@ servers:
           to you rather than the organization name as the latter causes an extra lookup to find the ID and also has the
           potential to break if the organization name is changed.
 paths:
+  #Administration paths
+  '/accounts':
+    $ref: tenants/paths/accounts.yaml
+  '/accounts/{accountId}':
+    $ref: tenants/paths/accounts_{accountId}.yaml
+  '/clients':
+    $ref: oidc/paths/clients.yaml
+  '/clients/{clientId}':
+    $ref: oidc/paths/clients_{clientId}.yaml
+
   #Prompt Management paths
   '/prompts':
     $ref: 'prompt/paths/prompts.yaml'
@@ -95,24 +103,14 @@ paths:
   #Custom Domain Management paths
   '/domains':
     $ref: 'domain/paths/domains.yaml'
-#  '/domains/{domainId}':
-#    $ref: 'domain/paths/domains_{domainId}.yaml'
+  '/domains/{domainId}':
+    $ref: 'domain/paths/domains_{domainId}.yaml'
 #  '/domains/{domainId}/status':
 #    $ref: 'domain/paths/domains_{domainId}_status.yaml'
 #  '/domains/{domainId}/certificates':
 #    $ref: 'domain/paths/domains_{domainId}_certificates.yaml'
 #  '/domains/{domainId}/certificates/{certificateId}':
 #    $ref: 'domain/paths/domains_{domainId}_certificates_{certificateId}.yaml'
-
-  #Administration paths
-  /accounts:
-    $ref: tenants/paths/accounts.yaml
-  '/accounts/{accountId}':
-    $ref: tenants/paths/accounts_{accountId}.yaml
-  /clients:
-    $ref: oidc/paths/clients.yaml
-  '/clients/{clientId}':
-    $ref: oidc/paths/clients_{clientId}.yaml
 
   #Rate limiting and access control paths
   '/apikeys':

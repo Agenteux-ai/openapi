@@ -64,6 +64,10 @@ patch:
     Perform a partial update of a Java Web Token (JWT) verification
     configuration (by ID or slug)
   operationId: 'JwtConfig::patch'
+  description: |
+    This method observes [JSON patch](https://jsonpatch.com/) semantics. Any properties that are explicity set
+    (e.g. to empty) will update the JWT Verifier configuration. Properties not included in
+    the body will not effect the JWT Verifier configuration.
   requestBody:
     description: JWT verification configuration data to be updated
     content:

@@ -62,6 +62,10 @@ patch:
     - Rate Plans
   summary: Perform a partial update of a rate plan (by its ID or slug)
   operationId: 'RatePlan::patch'
+  description: |
+    This method observes [JSON patch](https://jsonpatch.com/) semantics. Any properties that are explicity set
+    (e.g. to empty) will update the Rate Plan configuration. Properties not included in
+    the body will not effect the Rate Plan configuration.
   requestBody:
     description: Rate plan configuration data to be updated
     content:

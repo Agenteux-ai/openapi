@@ -6,7 +6,7 @@
             "properties" : {
                 "domains" : {
                     "type" : "array",
-                    "items" : {"$ref" : "CustomDomain.json"}
+                    "items" : {$ref : "CustomDomain.json"}
                 }
             }
         }

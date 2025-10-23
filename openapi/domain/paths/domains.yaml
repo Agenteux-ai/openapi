@@ -26,41 +26,42 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/DomainList.json
+            $ref: '../components/schemas/DomainList.json'
     '401':
-      $ref: ../../components/responses/401Unauthorized.yaml
+      $ref: '../../components/responses/401Unauthorized.yaml'
     '403':
-      $ref: ../../components/responses/403Forbidden.yaml
+      $ref: '../../components/responses/403Forbidden.yaml'
 post:
   tags:
     - Custom Domains
   summary: Create a new custom domain
   description: >-
-    Note that after creating a custom domain, you will
-    need to set up DNS records with your domain provider to verify domain ownership
-    and to point to Agenteux.
+    Create a new white-label or custom domain definition. Note that after creating a custom domain,
+    you will need to set up DNS records with your domain provider to verify domain ownership. This
+    involves adding specific a TXT record for verification. Once verified, a certificate will be
+    generate and you can configure one or more DNS CNAME records to point to Agenteux.
   operationId: 'domain::create'
   requestBody:
-    description: Schema details.
+    description: Custom domain details.
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/CustomDomainDto.json
+          $ref: '../components/schemas/CustomDomainDto.json'
     required: true
   responses:
     '201':
       description: >-
-        Successful schema creation. Returns the newly-created schema details
-        including the initial version.
+        Successful custom domain creation. Returns the newly-defined domain details
+        including the domain verification status and instructions for DNS setup.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/CustomDomain.json
+            $ref: '../components/schemas/CustomDomain.json'
     '400':
-      $ref: ../../components/responses/400BadRequest.yaml
+      $ref: '../../components/responses/400BadRequest.yaml'
     '401':
-      $ref: ../../components/responses/401Unauthorized.yaml
+      $ref: '../../components/responses/401Unauthorized.yaml'
     '403':
-      $ref: ../../components/responses/403Forbidden.yaml
+      $ref: '../../components/responses/403Forbidden.yaml'
     '409':
-      $ref: ../../components/responses/409Conflict.yaml
+      $ref: '../../components/responses/409Conflict.yaml'

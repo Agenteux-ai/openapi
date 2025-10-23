@@ -64,6 +64,10 @@ patch:
     - Policies
   summary: Perform a partial update of a policy definition (by its ID or slug)
   operationId: 'Policy::patch'
+  description: |
+    This method observes [JSON patch](https://jsonpatch.com/) semantics. Any properties that are explicity set
+    (e.g. to empty) will update the Policy configuration. Properties not included in
+    the body will not effect the Policy configuration.
   requestBody:
     description: Policy definition data to be updated
     content:

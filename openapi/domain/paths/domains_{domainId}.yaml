@@ -1,0 +1,129 @@
+get:
+  tags:
+    - Custom Domains
+  summary: Retrieve a custom domain
+  operationId: 'domain::read'
+  parameters:
+    - name: domainId
+      in: path
+      description: The UUID or slug of the custom domain.
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Custom domain configuration and status details.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/CustomDomain.json'
+    '400':
+      $ref: '../../components/responses/400BadRequest.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'
+put:
+  tags:
+    - Custom Domains
+  summary: Update/replace a custom domain configuration
+  operationId: 'domain::update'
+  parameters:
+    - name: domainId
+      in: path
+      description: The UUID or slug of the custom domain.
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: string
+  requestBody:
+    description: Custom domain configuration details.
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/CustomDomain.json'
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated custom domain.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/CustomDomain.json'
+    '400':
+      $ref: '../../components/responses/400BadRequest.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'
+    '409':
+      $ref: '../../components/responses/409Conflict.yaml'
+delete:
+  tags:
+    - Custom Domains
+  summary: Remove an entire custom domain
+  operationId: 'domain::delete'
+  parameters:
+    - name: domainId
+      in: path
+      description: The UUID or slug of the custom domain.
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: string
+  responses:
+    '204':
+      $ref: '../../components/responses/204NoContent.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'
+patch:
+  tags:
+    - Custom Domains
+  summary: >-
+    Perform a partial update of a custom domain
+  description: |
+    This method observes [JSON patch](https://jsonpatch.com/) semantics.
+    Any properties that are explicity set (e.g. to empty) will update the custom domain configuration.
+    Properties not included in the body will not effect the custom domain configuration.  
+  operationId: 'domain::patch'
+  parameters:
+    - name: domainId
+      in: path
+      description: The UUID or slug of the custom domain.
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: string
+  requestBody:
+    description: Custom domain configuration details.
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/CustomDomain.json'
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated custom domain.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/CustomDomain.json'
+    '400':
+      $ref: '../../components/responses/400BadRequest.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'
+    '409':
+      $ref: '../../components/responses/409Conflict.yaml'

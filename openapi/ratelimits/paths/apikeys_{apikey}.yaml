@@ -71,6 +71,10 @@ patch:
     - API Keys
   summary: Perform a partial update of a static API key (by ID or key)
   operationId: 'ApiKey::patch'
+  description: |
+    This method observes [JSON patch](https://jsonpatch.com/) semantics. Any properties that are explicity set
+    (e.g. to empty) will update the API key configuration. Properties not included in
+    the body will not effect the API key configuration.
   requestBody:
     description: API key metadata to be updated
     content:
