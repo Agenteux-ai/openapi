@@ -46,7 +46,7 @@ x-tagGroups:
       - JWT Verifiers
       - Policies
       - Rate Limiting
-      - Rate Limiting Metrics
+      - Rate-Limiting Metrics
       - Rate Plans
 
   - name: "Administration"
