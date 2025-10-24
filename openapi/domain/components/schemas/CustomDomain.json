@@ -6,7 +6,7 @@
       $ref : "../../../components/schemas/AccountReference.json"
     },
     "createdAt" : {
-      $ref: "../../../components/schemas/createdAt.json"
+      $ref: "../../../components/schemas/CreatedAt.json"
     },
     "id" : {
       "type" : "string",
