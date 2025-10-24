@@ -24,7 +24,7 @@
 	  "description": "The origin domain that the custom domain points to."
     },
     "updatedAt" : {
-      $ref: "../../../components/schemas/updatedAt.json"
+      $ref: "../../../components/schemas/UpdatedAt.json"
     },
     "verification" : {
       $ref : "OwnershipVerification.json"
