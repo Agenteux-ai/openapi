@@ -1,6 +1,6 @@
 parameters:
   - $ref: ../parameters/promptId.yaml
-  - $ref: ../parameters/version.yaml
+  - $ref: ../../parameters/version.yaml
 get:
   tags:
     - Prompt Versions

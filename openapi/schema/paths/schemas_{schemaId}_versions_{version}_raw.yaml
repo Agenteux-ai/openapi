@@ -1,6 +1,6 @@
 parameters:
   - $ref: ../parameters/schemaId.yaml
-  - $ref: ../parameters/version.yaml
+  - $ref: ../../parameters/version.yaml
 get:
   tags:
     - Schema Versions
