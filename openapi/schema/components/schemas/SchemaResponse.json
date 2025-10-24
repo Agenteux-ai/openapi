@@ -22,8 +22,9 @@
     "name" : {
       "type" : "string"
     },
-    "schema" : {
-      "type" : "string"
+    "source" : {
+      "type" : "string",
+	  "description" : "The original source content of the schema, typically in JSON Schema format."
     },
     "signature" : {
       "type" : "string"

@@ -20,8 +20,9 @@
     "name" : {
       "type" : "string"
     },
-    "raw" : {
-      "type" : "string"
+    "source" : {
+      "type" : "string",
+	  "description" : "The original source content of the schema reflecting the format of the `mediaType` property, typically in JSON Schema format."
     },
     "schema" : {
       "type" : "object",

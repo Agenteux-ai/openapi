@@ -2,34 +2,11 @@
   "$schema" : "https://json-schema.org/draft/2020-12/schema",
   "type" : "object",
   "properties" : {
-    "schema" : {
+    "source" : {
       "type" : "string"
     },
     "version" : {
-      "type" : [ "object", "null" ],
-      "properties" : {
-        "buildTags" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "major" : {
-          "type" : "integer"
-        },
-        "minor" : {
-          "type" : "integer"
-        },
-        "patch" : {
-          "type" : "integer"
-        },
-        "suffixTags" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
+      "type" : [ "string", "null" ]
     }
   },
   "$id" : "https://schema.agenteux.com/schema/SchemaVersionDto.json",
