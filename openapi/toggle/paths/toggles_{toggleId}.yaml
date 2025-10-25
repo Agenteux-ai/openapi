@@ -1,0 +1,94 @@
+parameters:
+  - $ref: ../parameters/toggleId.yaml
+get:
+  tags:
+    - Toggles
+  summary: Read a Toggle
+  operationId: 'toggle::read'
+  responses:
+    '200':
+      description: Toggle configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Toggle.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+put:
+  tags:
+    - Toggles
+  summary: Update/replace a Toggle
+  operationId: 'toggle::update'
+  requestBody:
+    description: Toggle configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../ToggleDto.json
+    required: true
+  responses:
+    '204':
+      description: No content
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Toggles
+  summary: Remove a Toggle
+  operationId: 'toggle::delete'
+  responses:
+    '204':
+      description: No content
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+patch:
+  tags:
+    - Toggles
+  summary: >-
+    Perform a partial update of a Toggle
+  description: >-
+    This method observes JSON patch semantics.
+    Any properties that are explicity set (e.g. to empty) will update the Toggle. Properties not included in the body will
+    not effect the Toggle configuration.  
+  operationId: 'toggle::patch'
+  requestBody:
+    description: Toggle configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../TogglePatchDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated Stage.
+      content:
+        application/json:
+          schema:
+            $ref: ../Toggle.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+        

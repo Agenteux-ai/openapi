@@ -1,0 +1,14 @@
+{
+    "type" : "object",
+    "properties" : {
+        "_embedded" : {
+            "type" : "object",
+            "properties" : {
+                "features" : {
+                    "type" : "array",
+                    "items" : {"$ref" : "Feature.json"}
+                }
+            }
+        }
+    }
+}

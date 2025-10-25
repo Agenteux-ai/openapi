@@ -1,0 +1,28 @@
+parameters:
+  - $ref: ../parameters/stageId.yaml
+  - $ref: ../parameters/featureId.yaml
+put:
+  tags:
+    - Features
+  summary: Enable/disable a Feature within a Stage
+  operationId: 'stage:feature:enable'
+  requestBody:
+    description: Stage configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../EnabledDto.json
+    required: true
+  responses:
+    '200':
+      description: Feature configuration metadata for the Stage
+      content:
+        application/json:
+          schema:
+            $ref: ../StageFeatureToggle.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml

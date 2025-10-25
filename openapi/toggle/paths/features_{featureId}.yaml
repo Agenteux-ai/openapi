@@ -1,0 +1,94 @@
+parameters:
+  - $ref: ../parameters/featureId.yaml
+get:
+  tags:
+    - Features
+  summary: Read a Feature
+  operationId: 'feature::read'
+  responses:
+    '200':
+      description: Feature configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Feature.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+put:
+  tags:
+    - Features
+  summary: Update/replace a Feature
+  operationId: 'feature::update'
+  requestBody:
+    description: Feature configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../FeatureDto.json
+    required: true
+  responses:
+    '204':
+      description: No content
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Features
+  summary: Remove a Feature
+  operationId: 'feature::delete'
+  responses:
+    '204':
+      description: No content
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+patch:
+  tags:
+    - Features
+  summary: >-
+    Perform a partial update of a Feature
+  description: >-
+    This method observes JSON patch semantics.
+    Any properties that are explicity set (e.g. to empty) will update the Feature. Properties not included in the body will
+    not effect the Feature configuration.  
+  operationId: 'feature::patch'
+  requestBody:
+    description: Feature configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../FeatureDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated Feature.
+      content:
+        application/json:
+          schema:
+            $ref: ../Feature.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+        

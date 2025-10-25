@@ -1,0 +1,50 @@
+get:
+  tags:
+    - Toggles
+  summary: List all the Toggles (paginated)
+  operationId: 'toggle::readAll'
+  responses:
+    '200':
+      description: A list of Toggles and associated configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: '../ToggleList.json'
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+post:
+  tags:
+    - Toggles
+  summary: >-
+    Create a new Toggle.
+  operationId: 'toggle::create'
+  requestBody:
+    description: Toggle configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../ToggleDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful Toggle creation. Returns the newly-created Toggle and its
+        configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Toggle.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

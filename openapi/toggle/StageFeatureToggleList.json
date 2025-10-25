@@ -1,0 +1,28 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "features" : {
+      "type" : "object",
+      "additionalProperties" : {
+        "$ref" : "MiniFeatureToggle.json"
+      }
+    },
+    "stage" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "name" : {
+          "type" : "string",
+          "maxLength" : 256
+        }
+      }
+    }
+  },
+  "$id" : "https://schema.agenteux.com/toggle/StageFeatureToggleList.json",
+  "title" : "StageFeatureToggleList",
+  "description" : "JSON Schema definition for StageFeatureToggleList"
+}

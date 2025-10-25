@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Features
+  summary: List all the Features for a Stage (paginated)
+  operationId: 'stage:feature:readAll'
+  responses:
+    '200':
+      description: A list of Features for the given Stage
+      content:
+        application/json:
+          schema:
+            $ref: '../StageFeatureToggleList.json'
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml

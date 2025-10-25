@@ -1,0 +1,50 @@
+get:
+  tags:
+    - Features
+  summary: List all the Features (paginated)
+  operationId: 'feature::readAll'
+  responses:
+    '200':
+      description: An array of releases and associated configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: '../FeatureList.json'
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+post:
+  tags:
+    - Features
+  summary: >-
+    Create a new Feature
+  operationId: 'feature::create'
+  requestBody:
+    description: Feature configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../FeatureDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful Feature creation. Returns the newly-created Feature
+        configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Feature.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

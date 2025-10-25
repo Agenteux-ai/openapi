@@ -28,6 +28,10 @@ tags:
   - $ref: domain/tags/CustomDomains.yaml
   - $ref: domain/tags/Certificates.yaml
   - $ref: link/tags/Links.yaml
+  - $ref: toggle/tags/Releases.yaml
+  - $ref: toggle/tags/Features.yaml
+  - $ref: toggle/tags/Stages.yaml
+  - $ref: toggle/tags/Toggles.yaml
 x-tagGroups:
   - name: "Agenteux: Prompt"
     tags:
@@ -52,6 +56,12 @@ x-tagGroups:
   - name: "Agenteux: Link"
     tags:
       - Links
+  - name: "Agenteux: Toggle"
+    tags:
+      - Releases
+      - Features
+      - Stages
+      - Toggles
 
   - name: "Administration"
     tags:
@@ -141,17 +151,45 @@ paths:
     $ref: ratelimits/paths/rateplans_{rateplanId}_apikeys.yaml
 
   #Link Management paths
-  '/{alias}':
-    $ref: link/paths/{alias}.yaml
-  '/{alias}/qrcode':
-    $ref: link/paths/{alias}_qrcode.yaml
   '/links':
     $ref: link/paths/links.yaml
   '/links/{alias}':
     $ref: link/paths/links_{alias}.yaml
   '/links/{alias}/status':
     $ref: link/paths/links_{alias}_status.yaml
+  '/render/{alias}':
+    $ref: link/paths/{alias}.yaml
+  '/render/{alias}/qrcode':
+    $ref: link/paths/{alias}_qrcode.yaml
 
+  #Feature Toggle paths
+  '/releases':
+    $ref: toggle/paths/releases.yaml
+  '/releases/{releaseId}':
+    $ref: toggle/paths/releases_{releaseId}.yaml
+  '/releases/{releaseId}/features':
+    $ref: toggle/paths/releases_{releaseId}_features.yaml
+  '/features':
+    $ref: toggle/paths/features.yaml
+  '/features/{featureId}':
+    $ref: toggle/paths/features_{featureId}.yaml
+  '/stages':
+    $ref: toggle/paths/stages.yaml
+  '/stages/{stageId}':
+    $ref: toggle/paths/stages_{stageId}.yaml
+  '/stages/{stageId}/features':
+    $ref: toggle/paths/stages_{stageId}_features.yaml
+  '/stages/{stageId}/features/{featureId}':
+    $ref: toggle/paths/stages_{stageId}_features_{featureId}.yaml
+  '/stages/{stageId}/features/{featureId}/enabled':
+    $ref: toggle/paths/stages_{stageId}_features_{featureId}_enabled.yaml
+
+#  '/stages/{stageId}/releases':
+#    $ref: toggle/paths/stages_{stageId}_releases.yaml
+  '/toggles':
+    $ref: toggle/paths/toggles.yaml
+  '/toggles/{toggleId}':
+    $ref: toggle/paths/toggles_{toggleId}.yaml
 security:
   - OAuth2: []
 components:

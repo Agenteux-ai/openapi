@@ -1,0 +1,94 @@
+parameters:
+  - $ref: ../parameters/releaseId.yaml
+get:
+  tags:
+    - Releases
+  summary: Read a release
+  operationId: 'Release::read'
+  responses:
+    '200':
+      description: Release configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Release.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+put:
+  tags:
+    - Releases
+  summary: Update a release
+  operationId: 'Release::update'
+  requestBody:
+    description: Release configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../ReleaseDto.json
+    required: true
+  responses:
+    '204':
+      description: No content
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Releases
+  summary: Remove a release
+  operationId: 'Release::delete'
+  responses:
+    '204':
+      description: No content
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+patch:
+  tags:
+    - Releases
+  summary: >-
+    Perform a partial update of a release
+  description: >-
+    This method observes JSON patch semantics.
+    Any properties that are explicity set (e.g. to empty) will update the Release. Properties not included in the body will
+    not effect the Release configuration.  
+  operationId: 'Release::patch'
+  requestBody:
+    description: Release configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../ReleaseDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated release.
+      content:
+        application/json:
+          schema:
+            $ref: ../Release.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+        

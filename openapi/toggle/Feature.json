@@ -1,0 +1,93 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "account" : {
+      "$ref" : "../components/schemas/AccountReference.json"
+    },
+    "createdAt" : {
+		"$ref" : "../components/schemas/CreatedAt.json"
+    },
+    "description" : {
+      "type" : "string",
+      "maxLength" : 1024
+    },
+    "extended" : {
+      "type" : "object",
+      "properties" : {
+        "map" : {
+          "type" : "object"
+        }
+      }
+    },
+    "id" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "name" : {
+      "type" : "string",
+      "maxLength" : 256
+    },
+    "release" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid"
+        }
+      },
+      "required" : [ "id" ]
+    },
+    "schema" : {
+      "type" : "object",
+      "properties" : {
+        "href" : {
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "title" : {
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "type" : {
+          "type" : "string",
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "href" ]
+    },
+    "slug" : {
+      "type" : "string",
+      "maxLength" : 256,
+      "pattern" : "[a-z_\\-0-9]+"
+    },
+    "strategies" : {
+      "minItems" : 0,
+      "maxItems" : 1000,
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "name" : {
+            "type" : "string",
+            "maxLength" : 256
+          }
+        },
+        "required" : [ "id", "name" ],
+        "minItems" : 0,
+        "maxItems" : 1000
+      }
+    },
+    "updatedAt" : {
+		"$ref" : "../components/schemas/UpdatedAt.json"
+    }
+  },
+  "required" : [ "account", "name", "slug", "strategies" ],
+  "$id" : "https://schema.autheus.com/toggles/Feature.json",
+  "title" : "Feature",
+  "description" : "JSON Schema definition for Feature"
+}

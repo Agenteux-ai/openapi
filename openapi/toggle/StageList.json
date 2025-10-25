@@ -1,0 +1,14 @@
+{
+    "type" : "object",
+    "properties" : {
+        "_embedded" : {
+            "type" : "object",
+            "properties" : {
+                "stages" : {
+                    "type" : "array",
+                    "items" : {"$ref" : "Stage.json"}
+                }
+            }
+        }
+    }
+}

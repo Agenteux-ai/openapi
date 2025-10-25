@@ -1,0 +1,54 @@
+parameters:
+  - $ref: ../parameters/releaseId.yaml
+get:
+  tags:
+    - Releases
+  summary: List the features in a releases (paginated)
+  operationId: 'Release:features:readAll'
+  responses:
+    '200':
+      description: A list of features associated with the release
+      content:
+        application/json:
+          schema:
+            $ref: '../FeatureList.json'
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+post:
+  tags:
+    - Releases
+  summary: >-
+    Create a new feature within this release.
+  operationId: 'Release:feature:create'
+  requestBody:
+    description: Feature configuration data
+    content:
+      application/json:
+        schema:
+          $ref: ../FeatureDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful feature creation. Returns the newly-created feature
+        configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Feature.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

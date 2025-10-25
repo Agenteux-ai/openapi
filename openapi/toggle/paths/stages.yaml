@@ -1,0 +1,50 @@
+get:
+  tags:
+    - Stages
+  summary: List all the Stages (paginated)
+  operationId: 'stage::readAll'
+  responses:
+    '200':
+      description: A list of stages and associated configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: '../StageList.json'
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+post:
+  tags:
+    - Stages
+  summary: >-
+    Create a new Stage.
+  operationId: 'stage::create'
+  requestBody:
+    description: Stage configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../StageDto.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful Stage creation. Returns the newly-created Stage and its
+        configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Stage.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

@@ -1,0 +1,94 @@
+parameters:
+  - $ref: ../parameters/stageId.yaml
+get:
+  tags:
+    - Stages
+  summary: Read a Stage
+  operationId: 'stage::read'
+  responses:
+    '200':
+      description: Stage configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Stage.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+put:
+  tags:
+    - Stages
+  summary: Update/replace a Stage
+  operationId: 'stage::update'
+  requestBody:
+    description: Stage configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../StageDto.json
+    required: true
+  responses:
+    '204':
+      description: No content
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Stages
+  summary: Remove a Stage
+  operationId: 'stage::delete'
+  responses:
+    '204':
+      description: No content
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+patch:
+  tags:
+    - Stages
+  summary: >-
+    Perform a partial update of a Stage
+  description: >-
+    This method observes JSON patch semantics.
+    Any properties that are explicity set (e.g. to empty) will update the Stage. Properties not included in the body will
+    not effect the Stage configuration.  
+  operationId: 'stage::patch'
+  requestBody:
+    description: Stage configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../StageDto.json
+    required: true
+  responses:
+    '200':
+      description: The entire newly-updated Stage.
+      content:
+        application/json:
+          schema:
+            $ref: ../Stage.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+        
