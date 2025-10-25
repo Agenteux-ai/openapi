@@ -1,17 +1,17 @@
 parameters:
-  - $ref: '../parameters/domainId.yaml'
+  - $ref: '../parameters/alias.yaml'
 get:
   tags:
-    - Custom Domains
-  summary: Retrieve a custom domain
-  operationId: 'domain::read'
+    - Links
+  summary: Retrieve a single link by its alias
+  operationId: 'link::read'
   responses:
     '200':
-      description: Custom domain configuration and status details.
+      description: Short link details
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/CustomDomain.json'
+            $ref: '../components/schemas/Link.json'
     '400':
       $ref: '../../components/responses/400BadRequest.yaml'
     '401':
@@ -22,23 +22,24 @@ get:
       $ref: '../../components/responses/404NotFound.yaml'
 put:
   tags:
-    - Custom Domains
-  summary: Update/replace a custom domain configuration
-  operationId: 'domain::update'
+    - Links
+  summary: >-
+    Perform a full update of a custom domain
+  operationId: 'link::update'
   requestBody:
-    description: Custom domain configuration details.
+    description: Short link configuration details.
     content:
       application/json:
         schema:
-          $ref: '../components/schemas/CustomDomain.json'
+          $ref: '../components/schemas/LinkDto.json'
     required: true
   responses:
     '200':
-      description: The entire newly-updated custom domain.
+      description: The entire newly-updated short link.
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/CustomDomain.json'
+            $ref: '../components/schemas/Link.json'
     '400':
       $ref: '../../components/responses/400BadRequest.yaml'
     '401':
@@ -51,9 +52,9 @@ put:
       $ref: '../../components/responses/409Conflict.yaml'
 delete:
   tags:
-    - Custom Domains
-  summary: Remove an entire custom domain
-  operationId: 'domain::delete'
+    - Links
+  summary: Remove a short link
+  operationId: 'link::delete'
   responses:
     '204':
       $ref: '../../components/responses/204NoContent.yaml'
@@ -65,28 +66,28 @@ delete:
       $ref: '../../components/responses/404NotFound.yaml'
 patch:
   tags:
-    - Custom Domains
+    - Links
   summary: >-
-    Perform a partial update of a custom domain
+    Perform a partial update of a short link
   description: |
     This method observes [JSON patch](https://jsonpatch.com/) semantics.
-    Any properties that are explicity set (e.g. to empty) will update the custom domain configuration.
-    Properties not included in the body will not effect the custom domain configuration.  
-  operationId: 'domain::patch'
+    Any properties that are explicity set (e.g. to empty) will update the short link configuration.
+    Properties not included in the body will not effect the short link configuration.  
+  operationId: 'link::patch'
   requestBody:
-    description: Custom domain configuration details.
+    description: Short link configuration details.
     content:
       application/json:
         schema:
-          $ref: '../components/schemas/CustomDomain.json'
+          $ref: '../components/schemas/LinkDto.json'
     required: true
   responses:
     '200':
-      description: The entire newly-updated custom domain.
+      description: The entire newly-updated short link details.
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/CustomDomain.json'
+            $ref: '../components/schemas/Link.json'
     '400':
       $ref: '../../components/responses/400BadRequest.yaml'
     '401':

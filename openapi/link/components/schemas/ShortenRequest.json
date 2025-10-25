@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.org/draft/2019-09/schema",
+  "type" : "object",
+  "properties" : {
+    "longUrl" : {
+      "type" : "string"
+    },
+    "shortName" : {
+      "type" : "string"
+    }
+  },
+  "$id" : "https://schema.autheus.com/ShortenRequest.json",
+  "title" : "ShortenRequest",
+  "description" : "JSON Schema definition for ShortenRequest"
+}

@@ -1,0 +1,7 @@
+name: alias
+in: path
+description: The ID or 'alias' of the shortened link.
+required: true
+allowEmptyValue: false
+schema:
+  type: string

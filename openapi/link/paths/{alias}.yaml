@@ -1,0 +1,22 @@
+parameters:
+  - $ref: '../parameters/alias.yaml'
+get:
+  tags:
+    - Links
+  summary: Render a short link
+  operationId: 'link::render'
+  responses:
+    '200':
+      description: Short link render details
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/RenderedLink.json'
+    '400':
+      $ref: '../../components/responses/400BadRequest.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'

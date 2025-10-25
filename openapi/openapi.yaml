@@ -27,6 +27,7 @@ tags:
   - $ref: schema/tags/SchemaVersions.yaml
   - $ref: domain/tags/CustomDomains.yaml
   - $ref: domain/tags/Certificates.yaml
+  - $ref: link/tags/Links.yaml
 x-tagGroups:
   - name: "Agenteux: Prompt"
     tags:
@@ -48,6 +49,9 @@ x-tagGroups:
       - Rate Limiting
       - Rate-Limiting Metrics
       - Rate Plans
+  - name: "Agenteux: Link"
+    tags:
+      - Links
 
   - name: "Administration"
     tags:
@@ -135,6 +139,18 @@ paths:
     $ref: ratelimits/paths/rateplans_{rateplanId}.yaml
   '/rateplans/{rateplanId}/apikeys':
     $ref: ratelimits/paths/rateplans_{rateplanId}_apikeys.yaml
+
+  #Link Management paths
+  '/{alias}':
+    $ref: link/paths/{alias}.yaml
+  '/{alias}/qrcode':
+    $ref: link/paths/{alias}_qrcode.yaml
+  '/links':
+    $ref: link/paths/links.yaml
+  '/links/{alias}':
+    $ref: link/paths/links_{alias}.yaml
+  '/links/{alias}/status':
+    $ref: link/paths/links_{alias}_status.yaml
 
 security:
   - OAuth2: []

@@ -1,0 +1,46 @@
+parameters:
+  - $ref: '../parameters/alias.yaml'
+get:
+  tags:
+    - Links
+  summary: Retrieve the archived status of a short link
+  operationId: 'link:status:read'
+  responses:
+    '200':
+      description: Short link status details
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/LinkStatus.json'
+    '400':
+      $ref: '../../components/responses/400BadRequest.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'
+put:
+  tags:
+    - Links
+  summary: >-
+    Update the archived status of a short link
+  operationId: 'link:status:update'
+  requestBody:
+    description: Short link archive status details.
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/LinkStatus.json'
+    required: true
+  responses:
+    '204':
+      $ref: '../../components/responses/204NoContent.yaml'
+    '400':
+      $ref: '../../components/responses/400BadRequest.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'

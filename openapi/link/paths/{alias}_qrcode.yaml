@@ -1,0 +1,23 @@
+parameters:
+  - $ref: '../parameters/alias.yaml'
+get:
+  tags:
+    - Links
+  summary: Render a short link as a QR code
+  operationId: 'link:qrcode:render'
+  responses:
+    '200':
+      description: A byte stream of the QR code image
+      content:
+        image/png:
+          schema:
+            type: string
+            format: binary
+    '400':
+      $ref: '../../components/responses/400BadRequest.yaml'
+    '401':
+      $ref: '../../components/responses/401Unauthorized.yaml'
+    '403':
+      $ref: '../../components/responses/403Forbidden.yaml'
+    '404':
+      $ref: '../../components/responses/404NotFound.yaml'
