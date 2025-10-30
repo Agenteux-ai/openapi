@@ -1,0 +1,50 @@
+get:
+  tags:
+    - Strategies
+  summary: List all the Strategies (paginated)
+  operationId: 'strategy::readAll'
+  responses:
+    '200':
+      description: A list of rollout Strategies and associated configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: '../StrategyList.json'
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+post:
+  tags:
+    - Strategies
+  summary: >-
+    Create a new rollout Strategy.
+  operationId: 'strategy::create'
+  requestBody:
+    description: Strategy configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../Strategy.json
+    required: true
+  responses:
+    '201':
+      description: >-
+        Successful Strategy creation. Returns the newly-created Strategy and its
+        configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Strategy.json
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml

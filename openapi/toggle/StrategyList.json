@@ -1,0 +1,14 @@
+{
+    "type" : "object",
+    "properties" : {
+        "_embedded" : {
+            "type" : "object",
+            "properties" : {
+                "strategies" : {
+                    "type" : "array",
+                    "items" : {"$ref" : "Strategy.json"}
+                }
+            }
+        }
+    }
+}

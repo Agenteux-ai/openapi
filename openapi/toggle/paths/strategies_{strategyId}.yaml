@@ -1,0 +1,59 @@
+parameters:
+  - $ref: ../parameters/strategyId.yaml
+get:
+  tags:
+    - Strategies
+  summary: Read a Strategy
+  operationId: 'strategy::read'
+  responses:
+    '200':
+      description: Strategy configuration metadata
+      content:
+        application/json:
+          schema:
+            $ref: ../Strategy.json
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+put:
+  tags:
+    - Strategies
+  summary: Update/replace a Strategy
+  operationId: 'strategy::update'
+  requestBody:
+    description: Strategy configuration metadata.
+    content:
+      application/json:
+        schema:
+          $ref: ../Strategy.json
+    required: true
+  responses:
+    '204':
+      description: No content
+    '400':
+      $ref: ../../components/responses/400BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml
+    '409':
+      $ref: ../../components/responses/409Conflict.yaml
+delete:
+  tags:
+    - Strategies
+  summary: Remove a Strategy
+  operationId: 'strategy::delete'
+  responses:
+    '204':
+      description: No content
+    '401':
+      $ref: ../../components/responses/401Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/403Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/404NotFound.yaml

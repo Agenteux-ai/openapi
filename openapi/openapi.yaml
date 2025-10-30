@@ -31,6 +31,7 @@ tags:
   - $ref: toggle/tags/Releases.yaml
   - $ref: toggle/tags/Features.yaml
   - $ref: toggle/tags/Stages.yaml
+  - $ref: toggle/tags/Strategies.yaml
   - $ref: toggle/tags/Toggles.yaml
 x-tagGroups:
   - name: "Agenteux: Prompt"
@@ -61,6 +62,7 @@ x-tagGroups:
       - Releases
       - Features
       - Stages
+      - Strategies
       - Toggles
 
   - name: "Administration"
@@ -183,9 +185,16 @@ paths:
     $ref: toggle/paths/stages_{stageId}_features_{featureId}.yaml
   '/stages/{stageId}/features/{featureId}/enabled':
     $ref: toggle/paths/stages_{stageId}_features_{featureId}_enabled.yaml
-
-#  '/stages/{stageId}/releases':
-#    $ref: toggle/paths/stages_{stageId}_releases.yaml
+  '/stages/{stageId}/releases':
+    $ref: toggle/paths/stages_{stageId}_releases.yaml
+  '/stages/{stageId}/releases/{releaseId}':
+    $ref: toggle/paths/stages_{stageId}_releases_{releaseId}.yaml
+  '/stages/{stageId}/releases/{releaseId}/enabled':
+    $ref: toggle/paths/stages_{stageId}_releases_{releaseId}_enabled.yaml
+  '/strategies':
+    $ref: toggle/paths/strategies.yaml
+  '/strategies/{strategyId}':
+    $ref: toggle/paths/strategies_{strategyId}.yaml
   '/toggles':
     $ref: toggle/paths/toggles.yaml
   '/toggles/{toggleId}':

@@ -3,9 +3,7 @@
   "type" : "object",
   "properties" : {
     "createdAt" : {
-      "type" : "string",
-      "readOnly" : true,
-      "format" : "date-time"
+      "$ref": "../../components/schemas/CreatedAt.json"
     },
     "definitions" : {
       "minItems" : 0,
@@ -54,9 +52,7 @@
       "pattern" : "[a-z_\\-0-9]+"
     },
     "updatedAt" : {
-      "type" : "string",
-      "readOnly" : true,
-      "format" : "date-time"
+      "$ref": "../../components/schemas/UpdatedAt.json"
     }
   },
   "required" : [ "name", "slug" ],
