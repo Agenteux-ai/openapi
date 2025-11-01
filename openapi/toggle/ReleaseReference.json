@@ -1,13 +1,14 @@
 {
-    "$schema" : "https://json-schema.org/draft/2020-12/schema",
-    "type" : "object",
-    "properties" : {
-	    "id" : {
-	        "type" : "string",
-	        "format" : "uuid"
-	    },
-	    "required" : [ "id" ],
-	    "title" : "ReleaseReference",
-	    "description" : "This is a reference to a Release resource."  
-	}
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "format" : "uuid"
+    }
+  },
+  "required" : [ "id" ],
+  "$id" : "https://schema.agenteux.ai/toggle/ReleaseReference.json",
+  "title" : "ReleaseReference",
+    "description" : "This is a reference to a Release resource (by its UUID)."  
 }

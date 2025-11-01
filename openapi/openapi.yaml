@@ -9,7 +9,7 @@ info:
     url: https://agenteux.ai/contact
   license:
     name: 'Commercial, Enterprise'
-    url: 'https://autheus.com'
+    url: 'https://agenteux.ai'
   description:
     $ref: ./info-description.md
 tags:
@@ -185,12 +185,12 @@ paths:
     $ref: toggle/paths/stages_{stageId}_features_{featureId}.yaml
   '/stages/{stageId}/features/{featureId}/enabled':
     $ref: toggle/paths/stages_{stageId}_features_{featureId}_enabled.yaml
-  '/stages/{stageId}/releases':
-    $ref: toggle/paths/stages_{stageId}_releases.yaml
-  '/stages/{stageId}/releases/{releaseId}':
-    $ref: toggle/paths/stages_{stageId}_releases_{releaseId}.yaml
-  '/stages/{stageId}/releases/{releaseId}/enabled':
-    $ref: toggle/paths/stages_{stageId}_releases_{releaseId}_enabled.yaml
+  # '/stages/{stageId}/releases':
+  #   $ref: toggle/paths/stages_{stageId}_releases.yaml
+  # '/stages/{stageId}/releases/{releaseId}':
+  #   $ref: toggle/paths/stages_{stageId}_releases_{releaseId}.yaml
+  # '/stages/{stageId}/releases/{releaseId}/enabled':
+  #   $ref: toggle/paths/stages_{stageId}_releases_{releaseId}_enabled.yaml
   '/strategies':
     $ref: toggle/paths/strategies.yaml
   '/strategies/{strategyId}':

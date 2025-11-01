@@ -3,6 +3,8 @@ get:
     - Features
   summary: List all the Features for a Stage (paginated)
   operationId: 'stage:feature:readAll'
+  parameters: 
+    - $ref: ../parameters/stageId.yaml
   responses:
     '200':
       description: A list of Features for the given Stage

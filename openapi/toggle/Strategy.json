@@ -3,7 +3,7 @@
   "type" : "object",
   "properties" : {
     "createdAt" : {
-      "$ref": "../../components/schemas/CreatedAt.json"
+      "$ref": "../components/schemas/CreatedAt.json"
     },
     "definitions" : {
       "minItems" : 0,
@@ -52,11 +52,11 @@
       "pattern" : "[a-z_\\-0-9]+"
     },
     "updatedAt" : {
-      "$ref": "../../components/schemas/UpdatedAt.json"
+      "$ref": "../components/schemas/UpdatedAt.json"
     }
   },
   "required" : [ "name", "slug" ],
-  "$id" : "https://schema.autheus.com/toggles/Strategy.json",
+  "$id" : "https://schema.agenteux.com/toggle/Strategy.json",
   "title" : "Strategy",
   "description" : "JSON Schema definition for Strategy"
 }
