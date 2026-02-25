@@ -1,0 +1,18 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "content" : {
+      "type" : "string",
+      "maxLength" : 102400
+    },
+    "role" : {
+      "type" : "string",
+      "enum" : [ "SYSTEM", "USER", "ASSISTANT" ]
+    }
+  },
+  "required" : [ "content", "role" ],
+  "$id" : "https://schema.agenteux.com/prompt/Message.json",
+  "title" : "Message",
+  "description" : "JSON Schema definition for an LLM Message, multiple of which make up a Prompt Template"
+}

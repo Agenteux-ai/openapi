@@ -2,11 +2,14 @@
   "$schema" : "https://json-schema.org/draft/2020-12/schema",
   "type" : "object",
   "properties" : {
-    "template" : {
-      "type" : "string",
+	"template" : {
+	  "type" : "array",
+	  "items" : {
+		$ref : "Message.json"
+	  },
 	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
-      "maxLength" : 102400
-    },
+	  "maxLength": 102400
+	},
     "version" : {
       "type" : "string",
 	  "format": "semantic-version",

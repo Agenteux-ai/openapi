@@ -18,7 +18,10 @@
 	  "maxLength": 256
     },
     "template" : {
-      "type" : "string",
+      "type" : "array",
+	  "items" : {
+		$ref : "Message.json"
+	  },
 	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
 	  "maxLength": 102400
     },

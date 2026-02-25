@@ -30,10 +30,14 @@
       "type" : "string",
 	  "description" : "A URL-friendly unique name for the prompt."
     },
-    "template" : {
-      "type" : "string",
-	  "description" : "The prompt template with placeholders for variables."
-    },
+	"template" : {
+	  "type" : "array",
+	  "items" : {
+		$ref : "Message.json"
+	  },
+	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
+	  "maxLength": 102400
+	},
     "updatedAt" : {
       $ref: "../../../components/schemas/UpdatedAt.json"
     },

@@ -38,8 +38,11 @@
 	  "description" : "A URL-friendly unique name for the prompt."
 	},
 	"template" : {
-	  "type" : "string",
-	  "description" : "The prompt template with placeholders for variables."
+	  "type" : "array",
+	  "items" : {
+		$ref : "Message.json"
+	  },
+	  "description": "The prompt template with placeholders for variables."
 	},
     "updatedAt" : {
       $ref: "../../../components/schemas/UpdatedAt.json"
