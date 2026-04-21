@@ -12,7 +12,7 @@
     },
     "type" : {
       "type" : "string",
-      "enum" : [ "string", "integer", "decimal", "boolean", "date", "time", "timestamp" ],
+      "enum" : [ "string", "integer", "number", "boolean", "date", "time", "timestamp" ],
       "default" : "string",
 	  "description" : "The data type of the variable. If specified, inputs will be validated against this type."
     }

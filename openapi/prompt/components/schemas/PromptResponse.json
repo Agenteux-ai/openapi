@@ -44,9 +44,9 @@
     "variables" : {
       "type" : "object",
       "additionalProperties" : {
-            "$ref" : "PromptVariable.json"
+            "$ref" : "PromptVariableSchema.json"
       },
-	  "description" : "A map of variable names to their definitions used in the prompt template.",
+	  "description" : "A map of variable names used in the prompt template to their JSON schema compatible definitions.",
 	  "example" : {
         "user_name" : {
           "name" : "user_name",
@@ -56,7 +56,12 @@
           "name" : "age",
           "type" : "integer",
           "default" : 18
-        }
+        },
+		"birth_date" : {
+          "name" : "birth_date",
+          "type" : "string",
+          "format" : "date"
+		}
       }
     },
     "version" : {

@@ -31,7 +31,7 @@
     "variables" : {
       "type" : "object",
 	  "additionalProperties" : {
-        $ref : "PromptVariable.json"
+        $ref : "PromptVariableSchema.json"
       }
     },
     "version" : {

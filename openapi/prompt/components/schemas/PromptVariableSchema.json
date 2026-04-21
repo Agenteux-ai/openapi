@@ -1,0 +1,24 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "type" : "object",
+  "properties" : {
+    "default" : {
+      "type" : "string"
+    },
+    "description" : {
+      "type" : "string"
+    },
+    "format" : {
+      "type" : "string"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "type" : {
+      "type" : "string"
+    }
+  },
+  "$id" : "https://schema.agenteux.com/prompt/PromptVariableSchema.json",
+  "title" : "PromptVariableSchema",
+  "description" : "JSON Schema definition for JSON schema-compliant view of a prompt variable."
+}
