@@ -2,7 +2,7 @@
   "$schema" : "https://json-schema.org/draft/2020-12/schema",
   "type" : "object",
   "properties" : {
-    "defaultValue" : {
+    "default" : {
       "type" : "string",
 	  "description" : "The default value for the variable if none is provided."
     },

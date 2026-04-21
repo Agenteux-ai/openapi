@@ -51,12 +51,10 @@
         "user_name" : {
           "name" : "user_name",
           "type" : "string",
-          "description" : "The name of the user."
         },
         "age" : {
           "name" : "age",
           "type" : "integer",
-          "description" : "The age of the user.",
           "default" : 18
         }
       }

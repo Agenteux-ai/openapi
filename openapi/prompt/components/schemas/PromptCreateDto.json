@@ -23,7 +23,8 @@
 		$ref : "Message.json"
 	  },
 	  "description": "The multi-messsage prompt template made up of one or more LLM messages with content and an assigned role.",
-	  "maxLength": 102400
+	  "minItems": 1,
+	  "maxItems": 100
     },
     "version" : {
       "type" : "string",
