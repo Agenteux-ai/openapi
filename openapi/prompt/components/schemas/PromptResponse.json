@@ -55,7 +55,7 @@
         "age" : {
           "name" : "age",
           "type" : "integer",
-          "default" : 18
+          "default" : "18"
         },
 		"birth_date" : {
           "name" : "birth_date",

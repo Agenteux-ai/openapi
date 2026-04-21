@@ -1,2 +1,20 @@
 name: Prompt Versions
-description: Prompt versioning operations.
+description: |
+  Prompt versioning operations.
+
+  A `PromptVersion` is an immutable snapshot of the prompt content and variables at a specific point in time. This immutibility ensures that once a prompt version is created, it cannot be altered, providing a reliable reference for reproducibility and auditability.
+
+  This distinction is useful because clients can:
+  - Reference a `Prompt` when they want the evolving resource.
+  - Pin to a `PromptVersion` when they need reproducibility, auditability, and deterministic behavior.
+
+  **Important API Note:**
+
+  Wherever the API exposes `/prompts/{promptId}/versions/{version}` in the path, it also supports the equivalent shorthand:
+  - `/prompts/{promptId}@{version}`
+
+  Both notations resolve to the same prompt version resource.
+
+  For example, the following two paths are functionally equivalent and will return the same prompt template resource:
+    - `/prompts/{promptId}@{version}/template`
+    - `/prompts/{promptId}/versions/{version}/template`

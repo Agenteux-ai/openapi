@@ -10,6 +10,6 @@
     "version": "redocly --version"
   },
   "devDependencies": {
-    "@redocly/cli": "^2.20.4"
+    "@redocly/cli": "^2.29.0"
   }
 }

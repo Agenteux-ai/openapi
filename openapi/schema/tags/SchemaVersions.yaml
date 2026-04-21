@@ -1,2 +1,20 @@
 name: Schema Versions
-description: Versioning operations for output schemas.
+description: |
+  Schema versioning operations.
+
+  A `SchemaVersion` is an immutable snapshot of the schema definition and configuration at a specific point in time. This immutability ensures that once a schema version is created, it cannot be altered, providing a reliable reference for reproducibility and auditability.
+
+  This distinction is useful because clients can:
+  - Reference a `Schema` when they want the evolving resource.
+  - Pin to a `SchemaVersion` when they need reproducibility, auditability, and deterministic behavior.
+
+  **Important API Note:**
+
+  Wherever the API exposes `/schemas/{schemaId}/versions/{version}` in a path, it also supports the equivalent shorthand:
+  - `/schemas/{schemaId}@{version}`
+
+  Both notations resolve to the same schema version resource.
+
+  For example, the following two paths are functionally equivalent and will return the same raw source schema resource:
+    - `/schemas/{schemaId}@{version}/source`
+    - `/schemas/{schemaId}/versions/{version}/source`

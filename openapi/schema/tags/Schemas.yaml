@@ -1,2 +1,12 @@
 name: Schemas
-description: Operations on output schemas.
+description: |
+  Schema management operations.
+
+  The Schema API is designed around the concepts of `Schema` and `SchemaVersion` resources to provide flexibility and control over schema lifecycle and versioning.
+  - A `Schema` is the stable logical container (identity, metadata, ownership, and lifecycle) for a schema over time.
+  - A `SchemaVersion` is an immutable snapshot of the schema definition and configuration at a specific point in time.
+  - A single `Schema` can have many `SchemaVersion` resources to illustrate the evolution of the schema over time.
+
+  This distinction is useful because clients can:
+  - Reference a `Schema` when they want the evolving resource.
+  - Pin to a `SchemaVersion` when they need reproducibility, auditability, and deterministic behavior.

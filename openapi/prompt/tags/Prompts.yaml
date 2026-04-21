@@ -1,2 +1,12 @@
 name: Prompts
-description: Prompt management operations.
+description: |
+  Prompt management operations.
+
+  The Prompt API is designed around the concepts of `Prompt` and `PromptVersion` resources to provide flexibility and control over prompt lifecycle and versioning.
+  - A `Prompt` is the stable logical container (identity, metadata, ownership, and lifecycle) for a prompt over time.
+  - A `PromptVersion` is an immutable snapshot of the prompt content and configuration at a specific point in time.
+  - A single `Prompt` can have many `PromptVersion` resources to illustrate the evolution of the prompt content and configuration over time.
+
+  This distinction is useful because clients can:
+  - Reference a `Prompt` when they want the evolving resource.
+  - Pin to a `PromptVersion` when they need reproducibility, auditability, and deterministic behavior.
