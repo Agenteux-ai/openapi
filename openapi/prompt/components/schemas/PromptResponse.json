@@ -35,7 +35,7 @@
 	  "items" : {
 		$ref : "Message.json"
 	  },
-	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
+	  "description": "The multi-message prompt template.",
 	  "maxLength": 102400
 	},
     "updatedAt" : {
@@ -70,5 +70,5 @@
   },
   "$id" : "https://schema.agenteux.com/prompt/PromptResponse.json",
   "title" : "PromptResponse",
-  "description" : "JSON Schema definition for PromptResponse"
+  "description" : "JSON Schema definition for a response describing a prompt template."
 }

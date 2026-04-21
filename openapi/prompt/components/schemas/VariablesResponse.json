@@ -44,5 +44,5 @@
   "readOnly" : true,
   "$id" : "https://schema.agenteux.com/prompt/VariablesResponse.json",
   "title" : "VariablesResponse",
-  "description" : "JSON Schema definition for VariablesResponse"
+  "description" : "JSON Schema definition for displaying the variables within a prompt."
 }

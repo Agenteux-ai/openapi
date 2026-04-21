@@ -42,7 +42,7 @@
 	  "items" : {
 		$ref : "Message.json"
 	  },
-	  "description": "The prompt template with placeholders for variables."
+	  "description": "The multi-message prompt template."
 	},
     "updatedAt" : {
       $ref: "../../../components/schemas/UpdatedAt.json"

@@ -4,15 +4,17 @@
   "properties" : {
     "content" : {
       "type" : "string",
-      "maxLength" : 102400
+      "maxLength" : 102400,
+	  "description" : "The prompt template content with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}"
     },
     "role" : {
       "type" : "string",
-      "enum" : [ "SYSTEM", "USER", "ASSISTANT" ]
+      "enum" : [ "system", "user", "assistant" ],
+	  "description" : "The role of this message within the prompt template, which can be 'system', 'user', or 'assistant'."
     }
   },
   "required" : [ "content", "role" ],
   "$id" : "https://schema.agenteux.com/prompt/Message.json",
   "title" : "Message",
-  "description" : "JSON Schema definition for an LLM Message, multiple of which make up a Prompt Template"
+  "description" : "JSON Schema definition for an LLM Message, multiple of which make up a prompt template"
 }

@@ -9,12 +9,12 @@
     },
     "name" : {
       "type" : "string",
-	  "description": "A human-readable name for the prompt.",
+	  "description": "A human-readable name for the prompt. ",
 	  "maxLength": 256
     },
     "slug" : {
       "type" : "string",
-	  "description": "A URL-friendly identifier for the prompt. If one is not provided, it is system-generated from the name.",
+	  "description": "A URL-friendly identifier for the prompt. If one is not provided, it is system-generated using the name.",
 	  "maxLength": 256
     },
     "template" : {
@@ -22,7 +22,7 @@
 	  "items" : {
 		$ref : "Message.json"
 	  },
-	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
+	  "description": "The multi-messsage prompt template made up of one or more LLM messages with content and an assigned role.",
 	  "maxLength": 102400
     },
     "version" : {
@@ -34,5 +34,5 @@
   "required" : [ "name", "template" ],
   "$id" : "https://schema.agenteux.com/prompt/PromptCreateDto.json",
   "title" : "PromptCreateDto",
-  "description" : "Properties used to create a brand-new Prompt"
+  "description" : "Properties used to create a brand-new prompt template."
 }

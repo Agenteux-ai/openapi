@@ -7,7 +7,7 @@
 	  "items" : {
 		$ref : "Message.json"
 	  },
-	  "description": "The prompt template with placeholders for variables. Variables are of the form: {{variable_name[:type][=default_value]}}",
+	  "description": "The multi-message prompt template..",
 	  "maxLength": 102400
 	},
     "version" : {
